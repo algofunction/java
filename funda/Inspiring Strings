@@ -1,0 +1,62 @@
+/** 
+
+Instructions
+
+When given a string of space separated words, return the word with the longest length. 
+If there are multiple words with the longest length, return the last instance of the word with the longest length.
+
+Example:
+'red white blue' //returns string value of white
+'red blue gold' //returns gold
+*/ 
+
+/**
+
+Sample Tests
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.runners.JUnit4;
+
+public class ExampleKataTests {
+    @Test
+    public void tests() {
+      assertEquals("fgh", Kata.longestWord("a b c d e fgh"));
+      assertEquals("three", Kata.longestWord("one two three"));
+      assertEquals("grey", Kata.longestWord("red blue grey"));
+    }
+}
+*/
+
+// Solution
+public class Kata 
+{
+  public static String longestWord(String wordString) 
+  {
+    // We have to obtain the Length of the Largest String here but since, we have various Strings present in our input String 'wordString', we would now split the 'wordString' into individual String array elements via the 'split()' method
+    // The Splitting parameter here is a whitespace because EVERY String present in the 'wordString' string is separated by a whitespace from the other String
+    // Suppose, our input String was "red blue grey", it would now be ["red", "blue", "grey"]
+    String[] res_arr = wordString.split(" ");
+    
+    // The String which has the longest length would be stored in the 'longest_str' String
+    // It is initialized to an EMPTY String (i.e "")
+    String longest_str = "";
+    
+    // We would iterate over the String array elements one-by-one
+    for (int i = 0; i < res_arr.length; i++) 
+    {
+        // The Length of the encountered String from the String array (i.e 'res_arr[i]') would be stored in the 'len' variable
+        int len = res_arr[i].length();
+      
+        // If the value of 'len' is GREATER THAN OR EQUAL TO the length of the 'longest_str' String, we would SET the NEW value of 'longest_str' String to be the CURRENT Encountered String
+        // In order to ensure that the LAST instance of the word with the longest length is ALWAYS returned, we mention the condition as 'greater than or equal to' the length of the 'longest_str'
+        // Had we needed the FIRST instance to be returned here, we would have mentioned the condition as 'greater than' the length of the 'longest_str'
+        if (len >= longest_str.length()) 
+          longest_str = res_arr[i];
+    }
+    
+    // At the end of the loop, we would have stored the String with the Longest Length in the 'longest_str' String
+    // So, we return it now
+    return longest_str;
+  }
+}
