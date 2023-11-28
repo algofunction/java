@@ -1,0 +1,39 @@
+/**
+Instructions
+
+Create function fib that returns n'th element of Fibonacci sequence (classic programming task).
+**/
+
+
+/**
+Sample Tests
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// TODO: Replace examples and use TDD development by writing your own tests
+
+class SolutionTest {
+    @Test
+    void sampleTests() {
+        assertEquals(1, Fibonacci.fib(1), "fib(1)");
+        assertEquals(1, Fibonacci.fib(2), "fib(2)");
+        assertEquals(2, Fibonacci.fib(3), "fib(3)");
+        assertEquals(3, Fibonacci.fib(4), "fib(4)");
+        assertEquals(5, Fibonacci.fib(5), "fib(5)");
+    }
+}
+**/
+
+
+// Solution
+import static java.util.stream.Stream.iterate;
+
+public class Fibonacci {
+  
+    public static long fib(final int n) {
+        return iterate(new long[]{1, 1}, a -> new long[]{a[1], a[0] + a[1]})
+                .skip(n - 1).findFirst().orElseThrow()[0];
+    }
+}
+
