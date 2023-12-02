@@ -1,0 +1,55 @@
+/**
+Instructions
+
+Given an integer n and two other values, build an array of size n filled with these two values alternating.
+
+Examples
+5, true, false     -->  [true, false, true, false, true]
+10, "blue", "red"  -->  ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]
+0, "one", "two"    -->  []
+**/
+
+
+/**
+Sample Tests
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.Arrays;
+
+// TODO: Replace examples and use TDD by writing your own tests
+
+class SolutionTest {
+  @Test
+  void smallArray() {
+    assertEquals(new String[]{"true", "false", "true", "false", "true"},
+                 5, "true", "false");
+  }
+  
+  @Test
+  void largerArray() {
+    assertEquals(new String[]{"blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"},
+                 20, "blue", "red");
+  }
+  
+  @Test
+  void withZero() {
+    assertEquals(new String[0], 0, "lemons", "apples");
+  }
+  
+  private void assertEquals(String[] expected, int n, String firstValue, String secondValue) {
+    String[] actual = Kata.alternate(n, firstValue, secondValue);
+    assertArrayEquals(expected, actual, String.format("For input (%d, \"%s\", \"%s\")%nExpected: %s%nActual: %s%n", n, firstValue, secondValue, Arrays.toString(expected), Arrays.toString(actual)));
+  }
+}
+**/
+
+
+// Solution
+import static java.util.stream.IntStream.range;
+
+interface Kata {
+  static String[] alternate(int n, String firstValue, String secondValue) {
+    return range(0, n).mapToObj(i -> i % 2 > 0 ? secondValue : firstValue).toArray(String[]::new);
+  }
+}
