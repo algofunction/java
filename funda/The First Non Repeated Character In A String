@@ -1,0 +1,58 @@
+/**
+Instructions
+
+You need to write a function, that returns the first non-repeated character in the given string.
+If all the characters are unique, return the first character of the string.
+If there is no unique character, return null in JS or Java, None in Python, '\0' in C.
+
+You can assume, that the input string has always non-zero length.
+
+Examples
+"test"   returns "e"
+"teeter" returns "r"
+"trend"  returns "t" (all the characters are unique)
+"aabbcc" returns null (all the characters are repeated)
+**/
+
+
+/**
+Sample Tests
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.runners.JUnit4;
+
+public class FirstNonRepeatedTest {
+    @Test
+    public void test1() {
+        final String input = "test";
+        final Character output = FirstNonRepeated.firstNonRepeated(input);
+        final Character expected = 'e';
+        assertEquals(expected, output);
+    }
+    
+    @Test
+    public void test2() {
+        final String input = "teeter";
+        final Character output = FirstNonRepeated.firstNonRepeated(input);
+        final Character expected = 'r';
+        assertEquals(expected, output);
+    }
+    
+    @Test
+    public void test3() {
+        final String input = "1122321235121222";
+        final Character output = FirstNonRepeated.firstNonRepeated(input);
+        final Character expected = '5';
+        assertEquals(expected, output);
+    }
+}
+**/
+
+// Solution
+public class FirstNonRepeated {
+    public static Character firstNonRepeated(String str) {
+        for(char ch :str.toCharArray()) if(str.indexOf(ch) == str.lastIndexOf(ch)) return ch;
+        return 0;
+    }
+}
