@@ -1,0 +1,47 @@
+/**
+Instructions
+
+
+In this Kata, you will be given two positive integers a and b and your task will be to apply the following operations:
+
+i) If a = 0 or b = 0, return [a,b]. Otherwise, go to step (ii);
+
+ii) If a ≥ 2*b, set a = a - 2*b, and repeat step (i). Otherwise, go to step (iii);
+
+iii) If b ≥ 2*a, set b = b - 2*a, and repeat step (i). Otherwise, return [a,b].
+
+a and b will both be lower than 10E8.
+**/
+
+
+/**
+Sample Tests
+
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+import org.junit.runners.JUnit4;
+
+public class SolutionTest{    
+    @Test
+    public void basicTests(){     
+        assertArrayEquals(new int [] {6,7},Solution.solve(6,19));
+        assertArrayEquals(new int [] {0,1},Solution.solve(2,1));
+        assertArrayEquals(new int [] {0,1},Solution.solve(22,5));
+        assertArrayEquals(new int [] {2,2},Solution.solve(2,10));
+        assertArrayEquals(new int [] {1019,1442},Solution.solve(8796203,7556));
+        assertArrayEquals(new int [] {19394,19394},Solution.solve(19394,19394));    
+    }
+}
+**/
+
+
+// Solution
+
+class Solution{
+    public static int[] solve(int a, int b) {
+      return a == 0 || b == 0 ? new int[]{a, b} :
+             a >= 2 * b ? solve(a - 2 * b, b) :
+             b >= 2 * a ? solve(a, b - 2 * a) : new int[]{a, b};
+    }
+}
