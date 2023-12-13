@@ -1,0 +1,71 @@
+/**
+Instructions
+
+Task:
+Your job is to write a function, which takes three integers a, b, and c as arguments, 
+and returns True if exactly two of of the three integers are positive numbers (greater than zero), 
+and False - otherwise.
+
+Examples:
+two_are_positive(2, 4, -3) == True
+two_are_positive(-4, 6, 8) == True
+two_are_positive(4, -6, 9) == True
+two_are_positive(-4, 6, 0) == False
+two_are_positive(4, 6, 10) == False
+two_are_positive(-14, -3, -4) == False
+**/
+
+
+/**
+Sample Tests
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+// TODO: Replace examples and use TDD by writing your own tests
+
+@DisplayName("Two numbers are positive")
+class SolutionTest {
+  @Test @DisplayName("Sample Tests")
+  void sampleTests() {
+    assertTrue(Kata.twoArePositive(2, 4, -3), "(2, 4, -3)");
+    assertTrue(Kata.twoArePositive(-4, 6, 8), "(-4, 6, 8)");
+    assertTrue(Kata.twoArePositive(4, -6, 9), "(4, -6, 9)");
+    assertTrue(Kata.twoArePositive(4, 6, 0), "(4, 6, 0)");
+    assertFalse(Kata.twoArePositive(-4, 6, 0), "(-4, 6, 0)");
+    assertFalse(Kata.twoArePositive(4, 6, 10), "(4, 6, 10)");
+    assertFalse(Kata.twoArePositive(-14, -3, -4), "(-14, -3, -4)");
+  }
+}**/
+
+// Solution
+public class Kata {
+  
+  public static boolean twoArePositive(int a, int b, int c) {
+
+    int twoNull = 0;
+      
+      if(a > 0)
+        twoNull ++;
+        
+      if(b > 0)
+        twoNull ++;
+      if (c>0)
+        twoNull ++;
+    
+    return twoNull == 2;
+  }
+}
+
+/**
+or 
+import java.util.stream.Stream;
+
+public class Kata {
+    public static boolean twoArePositive(int a, int b, int c) {
+        return Stream.of(a, b, c).filter(n -> n > 0).count() == 2;
+    }
+}
+**/
