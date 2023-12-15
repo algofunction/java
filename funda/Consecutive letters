@@ -1,0 +1,46 @@
+/**
+Instructions
+
+In this Kata, we will check if a string contains consecutive letters
+as they appear in the English alphabet and if each letter occurs only once.
+
+Rules are: (1) the letters are adjacent in the English alphabet,
+and (2) each letter occurs only once.
+
+For example: 
+solve("abc") = True, because it contains a,b,c
+solve("abd") = False, because a, b, d are not consecutive/adjacent in the alphabet, and c is missing.
+solve("dabc") = True, because it contains a, b, c, d
+solve("abbc") = False, because b does not occur once.
+solve("v") = True
+All inputs will be lowercase letters.
+**/
+
+/**
+Sample Tests
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.runners.JUnit4;
+
+public class SolutionTest{    
+    @Test
+    public void basicTests(){     
+        assertEquals(true,Solution.solve("abc"));
+        assertEquals(false,Solution.solve("abd"));
+        assertEquals(true,Solution.solve("dabc"));
+        assertEquals(false,Solution.solve("abbc"));
+        assertEquals(true,Solution.solve("v"));
+    }
+}**/
+
+// Solution
+import java.util.Arrays;
+
+class Solution{
+    public static boolean solve(String s){
+        char tempArray[] = s.toCharArray();    
+        Arrays.sort(tempArray);       
+        return "abcdefghijklmnopqrstuvwxyz".indexOf(new String(tempArray)) != -1;
+    }
+}
