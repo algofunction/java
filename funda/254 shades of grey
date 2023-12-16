@@ -1,0 +1,48 @@
+/**
+Instructions
+
+Why would we want to stop to only 50 shades of grey? 
+Let's see to how many we can go.
+
+Write a function that takes a number n as a parameter and return an array containing n 
+shades of grey in hexadecimal code (#aaaaaa for example). The array should be sorted in 
+ascending order starting with '#010101', '#020202', etc. (using lower case letters).
+
+Examples:
+n =  1:    ["#010101"]
+n = 10:    ["#010101", "#020202", "#030303", "#040404", "#050505", "#060606", "#070707", "#080808", "#090909", "#0a0a0a"]
+As a reminder, the grey color is composed by the same number of red, green and blue: #010101, #aeaeae, or #555555.
+
+Black: #000000 and white: #ffffff are not accepted values.
+When n is negative, just return an empty array. If n is higher than 254, just return an array of 254 elements.
+**/
+
+
+/**
+Sample Tests
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class GreyTest {
+  @Test
+  public void test() {
+    assertEquals("-1 should return an empty array", new String[0], ShadesOfGrey.shadesOfGrey(-1));
+    assertEquals("0 should return an empty array", new String[0], ShadesOfGrey.shadesOfGrey(0));
+    assertEquals("1 should return an array with #010101", new String[] {"#010101"}, ShadesOfGrey.shadesOfGrey(1));
+  }
+}**/
+
+
+// Solution
+
+import java.util.stream.IntStream;
+
+public class ShadesOfGrey {
+  static String[] shadesOfGrey(final int num) {
+    return (String[]) IntStream
+      .rangeClosed(1, Math.min(num, 254))
+      .mapToObj(i -> String.format("#%1$02x%1$02x%1$02x", i))
+      .toArray(String[]::new);
+  }
+}
