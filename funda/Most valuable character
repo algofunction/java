@@ -1,0 +1,52 @@
+/**
+Instructions
+
+In this Kata, you will be given a string and your task is to return the most valuable character.
+The value of a character is the difference between the index of its last occurrence and the index of its first occurrence. 
+Return the character that has the highest value. 
+If there is a tie, return the alphabetically lowest character. [For Golang return rune]
+
+All inputs will be lower case.
+
+For example:
+solve('a') = 'a'
+solve('ab') = 'a'. Last occurrence is equal to first occurrence of each character. Return lexicographically lowest.
+solve("axyzxyz") = 'x'
+**/
+
+/**
+Sample Tests
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.runners.JUnit4;
+
+public class SolutionTest{    
+    @Test
+    public void basicTests(){     
+        assertEquals('a', Solution.solve("a"));
+        assertEquals('a', Solution.solve("aa")); 
+        assertEquals('b', Solution.solve("bcd")); 
+        assertEquals('x', Solution.solve("axyzxyz")); 
+        assertEquals('a', Solution.solve("dcbadcba")); 
+        assertEquals('c', Solution.solve("aabccc"));
+        assertEquals('e', Solution.solve("efgefg")); 
+        assertEquals('e', Solution.solve("efghijefghi")); 
+        assertEquals('a', Solution.solve("acefacef"));
+        assertEquals('a', Solution.solve("acefacefacef"));    
+    }
+}
+**/
+
+// Solution
+class Solution{
+  public static char solve(String s) {
+    char ret = '?';
+    int hi = 0;
+    for (char c = 'z'; c >= 'a'; c--) {
+      int a = s.indexOf(c), b = s.lastIndexOf(c);
+      if (a >= 0 && (b-a) >= hi) { hi = (b-a); ret = c; }
+    }
+    return ret;
+  }
+}
