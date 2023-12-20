@@ -1,0 +1,15 @@
+/*
+Instruction
+
+Définir une fonction ordered qui s'applique à 3 entiers et renvoie en résultat un booléen qui indique si les 3 valeurs fournies sont triées par ordre croissant :
+- en utilisant une instruction conditionnelle
+*/
+
+// Solution
+static  boolean ordered(int a, int b, int c){
+  if(a>b)
+    return false;
+  if(b>c)
+    return false;
+  return true;
+}
