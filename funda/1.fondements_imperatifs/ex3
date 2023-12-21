@@ -1,3 +1,15 @@
-/**/
+/*
+Instruction
 
-//
+Définir une fonction entier qui s'applique à un flottant de type double et qui renvoie en résultat un booléen
+qui indique si la valeur fournie correspond à une valeur entière :
+- version 1 : sans tenir compte de l'approximation des flottants.
+*/
+
+// Solution
+static boolean entier1(double d){
+  int partieEntiere = (int)d;
+  if (partieEntiere==d) return true;
+    else :
+  return false;
+}
