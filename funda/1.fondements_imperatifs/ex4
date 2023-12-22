@@ -1,9 +1,14 @@
-/*
+ /*
 Instructions
 
-
-
-
+Définir une fonction fact s'appliquant à un entier de type int et renvoyant en résultat la factorielle de la valeur fournie de type int :
+- version 1 : en utilisant la récursivité
 */
 
-// Solution 
+// Solution
+static int fact1(int n) {
+  if (n<0) return -1;
+  if (n>12) return -2;
+  if (n<2) return 1;
+  return n*fact1(n-1);
+}
