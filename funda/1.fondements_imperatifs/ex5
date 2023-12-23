@@ -1,3 +1,12 @@
-/**/
+/*
+Définir une fonction maxtab s'appliquant à un tableau d'entiers non vide renvoyant 
+en résultat la plus grande valeur du tableau 
+*/
 
 // Solution 
+static int maxtab(int[] tab){
+  int resultat = tab[0]; //tab est non vide
+  for(int i = 1; i<tab.length; i++)
+    if(tab[i]>resultat) resultat = tab[i];
+  return resultat;
+}
