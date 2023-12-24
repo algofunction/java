@@ -1,4 +1,23 @@
-/*Définir une fonction inverse affichant*/
+/*
+Instruction
 
+Définir une fonction inverse s'appliquant à un tableau d'entiers et inversant l'ordre de ses éléments.
+
+Illustration :
+int[] tab = {5, -3, 8};
+inverse(tab); // tab : {8, -3, 5}
+
+Attention : 
+- vous ne devez pas créer de tableau pour réaliser cette fonction,
+- échanger les valeurs d'indices symétriques(par rapport à l'indice central).
+*/
 
 // Solution
+static void inverse(int[] tab){
+  for (int i = 0; i < tab.length / 2; i++){
+    int swap = tab[i];
+    tab[i] = tab[tab.length-1-i];
+    tab[tab.length-1-i] = swap;
+  }
+}
+
