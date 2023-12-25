@@ -1,0 +1,12 @@
+/*Instruction
+Définir une fonction cptab s'appliquant à un tableau d'entiers renvoyant en résultat une copie du tableau fourni :
+- en utilisant une boucle de parcours
+*/
+
+// Solution
+static int[] cptab(int[] tab){
+  int[] resultat = new int[tab.length];
+  for(int i=0; i<tab.length; i++)
+    resultat[i] = tab[i];
+  return resultat;
+}
