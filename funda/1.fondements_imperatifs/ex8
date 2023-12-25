@@ -1,0 +1,14 @@
+/*
+Instruction 
+Définir une fonction cptab2dim s'appliquant à un tableau à deux dimensions d'entiers et renvoyant en résultat une copie en profondeur du tableau :
+- version 1 : en utilisant une double boucle de parcours (hypothèse lignes de même taille).
+*/
+
+// Solution
+static int[][] cptab2dim(int[][] tab) {
+  int[][] resultat = new int[tab.length][tab[0].length];
+  for(int i=0;i<tab.length;i++) // parcours des lignes
+    for(int j=0; j<tab[i].length;j++) // parcours d'une ligne)
+      resultat[i][j] = tab[i][j];
+  return resultat
+}
