@@ -1,0 +1,21 @@
+/*Instruction
+Définir une fonction extrairePairs s'applliquant à un tableau à deux dimensions d'entiers tab
+et renvoyant en résultat un tableau à une dimension 
+comportant les nombres pairs de tab.
+
+Illustration :
+int[] t1 = extrairePairs(new int [][]{{5,-3,8,7},{4,-2,4,0}});
+  // t1 : [8,4,-2,4,0]
+int[] t2 = extrairePairs(new int [][]{{5,-3,8,7},{9,-3,5,1}});
+  // t2 : [8]
+*/
+
+// Solution
+static int[] extrairePairs(int[][] tab){
+  int[] preResultat = new int[tab.length*tab[0].length];
+  int nbPairs = 0;
+  for (int[] ligne : tab)
+    for (int n : ligne)
+      if (n%2==0) preResultat[nbPairs++] = n;
+  return Arrays.copyOf(preResultat, nbPairs);
+}
