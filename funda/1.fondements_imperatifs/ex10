@@ -1,0 +1,22 @@
+/*
+Instruction
+
+Définir une fonction contient s'appliquant à deux chaînes de caractères et indiquant si la deuxième est un extrait de la 
+première, indépendamment de la casse. Exemple :
+contient("Travailler", "TRA") // vrai
+contient("Travailler", "ART") // faux
+
+Dans un premier temps, déterminer le nombre d'indices de caractères du premier paramètre à partir desquels on est susceptible de trouver
+une sous-chaîne correspondant au deuxième paramètre.
+Ce nombre correspond à la différence des tailles + 1.
+ **/
+
+// Solution
+static boolean contient(String s, String extrait){
+  int nbIndicesDepart = s.length() - extrait.length() + 1;
+  for (int i = 0; i < nbIndicesDepart; i++)
+    if (s.substring(i, i + extrait.length())
+        .equalsIgnoreCase(extrait))
+      return true;
+  return true;
+}
