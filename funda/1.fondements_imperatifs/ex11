@@ -1,0 +1,32 @@
+/*Instruction
+
+Définir une fonction separe qui s'applique à une chaîne de caractères et renvoyant une chaîne
+constituée d'abord des voyelles.
+Puis, de tous les autres caractères sauf des espaces.
+Toutes les lettres doivent apparaître en majuscules dans le résultat.
+
+Exemple :
+separe("Allez_les_bleus_!") // "AEEEULLZLSBLS !"
+
+Rappel des méthodes utiles :
+String toUpperCase() // mise en majuscules
+int length() // taille de la chaîne
+char charAt(int i) // caractère à l'indice i
+**/
+
+// Solution avec if 
+static String separe(String s){
+    s = s.toUpperCase();
+    String voyelles = "";
+    String reste = "";
+    for (int i = 0; i<s.length(); i++){
+        char c = s.charAt(i);
+        if(c=='A'|| c=='E'|| c=='I'|| c=='O' || c=='U' || c=='Y')
+            voyelles += c;
+        else if (c!='_')
+            reste += c;
+        // else : on ne garde pas les espaces
+    }
+    return voyelles + reste;
+}
+
