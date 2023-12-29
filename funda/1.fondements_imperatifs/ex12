@@ -1,0 +1,22 @@
+/*Instruction
+
+Un palindrome est un mot qui peut se lire indifféremment dans les deux sens (ex. ressasser) :
+- Définir une fonction palindrome s'appliquant à une string et indiquant si la chaîne correspond à un palindrome.
+- Un palindrome peut être un mot, une phrase, un texte complet. Dans ce cas, on ignore les espaces et la ponctuation.
+
+Exemples :
+- engage le jeu que je le gagne
+- oh, cela te perd répéta l'écho
+
+Adapter la fonction palindrome afin qu'elle puisse reconnaître les palindromes ainsi définis.
+Pour cette version étendue, utiliser la méthode replaceAll de String :
+"AbCdEf".replaceAll("[ABCDEF]", "--") // "--b--d--f" 
+*/
+
+// Solution
+static boolean palindrome(String s){
+    for(int i = 0; i < s.length()/2; i++)
+        if (s.charAt(i) != s.charAt(s.length()-1-i))
+            return false;
+    return true;
+}
