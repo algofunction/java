@@ -1,0 +1,21 @@
+/*Instruction
+
+  Compléter la méthode genTab suivante qui crée un tableau d'entiers de n cases contenant des
+valeurs aléatoires comprises entre 0 et 100 :
+public static int[] genTab(int nbCases) {/* ... */}
+
+Exemple d'utilisation :
+int[] tabTest = genTab(10); // génération d'un tableau de 10 cases
+System.out.println(Arrays.toString(tabTest)) ; // affichage
+
+  Pour définir les valeurs aléatoires, vous devez utiliser la méthode statique random 
+de la class Math qui fournit une valeur flottante comprise entre 0 et 1.
+*/
+
+// Solution
+static int[] genTab(int nbCases) {
+  int[] resultat = new int[nbCases];
+  for(int i=0; i<resultat.length; i++)
+    resultat[i] = (int)(Math.random()*100);
+  return resultat;
+}
