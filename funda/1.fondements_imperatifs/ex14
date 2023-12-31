@@ -1,1 +1,17 @@
-/**/
+/*
+Instruction
+
+Compléter la méthode genTab2 suivante fournissant un tableau à 2 dimensions d’entiers 
+de nbl lignes et nbc colonnes, et dont chaque case contient des valeurs aléatoires entre 0 et 100 :
+public static int[][] genTab2(int nbl, int nbc) { /* … */ }
+
+Exemple d’utilisation :
+int[][] tab2Test = genTab2(3, 5); //{ /* … */ }
+
+
+
+
+*/
+
+
+// Solution
