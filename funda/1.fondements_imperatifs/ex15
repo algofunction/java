@@ -1,0 +1,19 @@
+/* Instruction
+
+Compléter la méthode swap suivante qui échange le contenu des cases d'indices
+i et i+1 d'un tableau fourni en paramètre :
+public static void swap(int[] tab, int i) { /* ... */}
+
+Exemple d'utilisation :
+int[] tab = {2, 7, 0, 5, 3, 1, 9};
+System.out.println(Arrays.toString(tab)); // affichage avant
+swap(tab, 2); // échange des cases d'indice 2et 3
+System.out.println(Arrays.toString(tab)); // affichage après
+
+A l'exécution, on obtient l'affichage suivante (les valeurs 0 et 5 sont échangées) :
+[2, 7, 0, 5, 3, 1, 9]
+[2, 7, 5, 0, 3, 1, 9]
+*/
+
+// Solution
+
