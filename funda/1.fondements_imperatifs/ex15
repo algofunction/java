@@ -16,4 +16,8 @@ A l'exécution, on obtient l'affichage suivante (les valeurs 0 et 5 sont échang
 */
 
 // Solution
-
+static void swap(int[] tab, int i){
+  int aux = tab[i];
+  tab[i] = tab[i+1];
+  tab[i+1] = aux;
+}
