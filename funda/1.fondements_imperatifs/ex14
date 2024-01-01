@@ -1,17 +1,24 @@
 /*
 Instruction
 
-Compléter la méthode genTab2 suivante fournissant un tableau à 2 dimensions d’entiers 
+  Compléter la méthode genTab2 suivante fournissant un tableau à 2 dimensions d’entiers 
 de nbl lignes et nbc colonnes, et dont chaque case contient des valeurs aléatoires entre 0 et 100 :
 public static int[][] genTab2(int nbl, int nbc) { /* … */ }
 
 Exemple d’utilisation :
-int[][] tab2Test = genTab2(3, 5); //{ /* … */ }
+int[][] tab2Test = genTab2(3, 5); //{ /* … */ }; // tableau de 3x5 cases
+System.out.println(Arrays.deepToString(tab2Test)); // affichage
 
+Exemple d'affichage obtenu à l'exécution (les nombres varient à chaque exécution) :
+[[80,91,10,20,46], [87,98,10,26,47], [81,93,19,24,43]] 
 
-
-
+  Pour programmer cette méthode, vous devez utiliser la méthode genTab de l'exercice précédent.
 */
 
-
 // Solution
+static int[][] genTab2(int nbl, int nbc){
+  int[][] resultat = new int[nbl][];
+  for (int i=0; i < resultat.length; i++)
+    resultat[i] = genTab(nbc);
+  return resultat;
+}
