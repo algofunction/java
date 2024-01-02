@@ -1,0 +1,28 @@
+/*Instruction
+
+Compléter la méthode bulle suivante s'appliquant à un tableau à une dimension
+d'entiers et à un entier n.
+Cette méthode déplace dans la case d'indice n la plus grande valeur contenue dans 
+le tableau entre les indices 0 et n (inclus) :
+
+public static void bulle (int[] tab, int n) { /* ... */ }
+
+Exemple d'utilisation :
+int[] tabBulle = {2, 7, 0, 5, 3, 1, 9};
+System.out.println(Arrays.toString(tabBulle)); // affichage avant
+bulle(tabBulle, 4); // maximum de [0 ; 4] placée à l'indice 4
+System.out.println(Arrays.toString(tabBulle)); // affichage après
+
+A l'exécution, on obtient l'affichage suivant. La valeur 7 est placée dans la case d'indice 4.
+Il s'agit bien de la plus grande valeur parmi les cases indicées de 0 à 4 :
+[2, 7, 0, 5, 3, 1, 9]
+[2, 0, 5, 3, 7, 1, 9]
+
+Pour programmer cette méthode, utilisez la méthode swap de l'exercice 15.
+*/
+
+// Solution
+static void bulle(int[] tab, int n) {
+    for (int i=0; i<n; i++)
+        if (tab[i]>tab[i+1]) swap(tab, i);
+}
