@@ -1,0 +1,29 @@
+/*Instruction
+  Compléter la méthode triBulle1 suivant qui s'applique à un tableau à une dimension d'entiers et qui trie 
+le tableau en appliquant le principe du tri à bulles :
+
+public static void triBulle1(int[] tab) { /* ... */ }
+
+Le but est de placer la plus grande valeur du tableau dans la dernière case, puis
+de placer la deuxième plus grande valeur du tableau dans l'avant-dernière case,
+et de continuer ainsi jusqu'à la première case qui doit alors contenir la plus
+petite valeur du tableau. Exemple d'utilisation :
+
+int[] tabBulle = {2, 7, 0, 5, 3, 1, 9};
+System.out.println(Arrays.toString(tabBulle)); // affichage avant
+triBulle1(tabBulle); // tri
+System.out.println(Arrays.toString(tabBulle)); // affichage après
+
+A l'exécution, on obtient l'affichage suivant :
+[2, 7, 0, 5, 3, 1, 9]
+[0, 1, 2, 3, 5, 7, 9]
+
+  Pour programmer cette méthode, vous devez utiliser la méthode bulle de l'exercice 16.
+*/
+
+// Solution
+static void triBulle1(int[] tab) {
+  for (int n=tab.length-1; n>0; n--) bulle(tab, n);
+}
+
+
