@@ -1,6 +1,23 @@
 /*Instruction
 
+Compléter la méthode triBulleLignes suivante qui trie ligne par ligne un tableau à deux dimensions d'entiers :
 
+public static void  triBulleLignes(int[] tab) { /* ... */ }
+
+Exemple d'utilisation :
+int[][] tab2Test = genTab2{3, 5};
+System.out.println(Arrays.deepToString(tab2Test)); // affichage avant
+triBulleLignes(tab2Test); // tri de chaque ligne
+System.out.println(Arrays.deepToString(tab2Test)); // affichage après
+
+Exemple d'affichage obtenu à l'exécution (les nombres varient à chaque exécution) :
+[Trois tables d'une colonne et 5 lignes.]
+
+Pour programmer cette méthode, vous devez utiliser la méthode bulle de l'exercice 17.
 */
 
 // Solution 
+static void triBulleLignes(int[][] tab) {
+    for (int i=0; i<tab.length; i++)
+        triBulle1(tab[i]);
+}
