@@ -1,0 +1,9 @@
+/*Instruction
+
+Soit tab, le tableau à deux dimensions d'entiers que la méthode triBulleGlobal
+doit trier. Par définition, tab comporte tab.length x tab[0].
+
+
+*/
+
+// Solution
