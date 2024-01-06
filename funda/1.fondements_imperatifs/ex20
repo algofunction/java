@@ -14,3 +14,10 @@ Chaque ligne d'indice i du tableau final correspond à la colonne d'indice i du 
 */
 
 // Solution
+static int[][] transpose(int[][] tab) {
+    int[][] t = new int[tab[0].length][tab.length];
+    for(int i=0; i<tab.length; i++)
+        for(int j=0; j<tab[i].length; j++)
+            t[j][i] = tab[i][j]; 
+    return t;
+}
