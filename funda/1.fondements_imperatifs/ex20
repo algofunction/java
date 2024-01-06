@@ -1,3 +1,16 @@
-/**/
+/*Instruction
 
-//
+Compléter la méthode transpose suivante s'appliquant un tableau à 2 dimensions d'entiers et qui renvoie en résultat un nouveau tableau à 2 dimensions d'entiers correspondant à la transposée du tableau fourni :
+public static int[][] transpose(int[][] tab) { /* ... */ }
+
+La transposée est obtenue en échangeant les lignes et les colonnes (par symétrie axiale par rapport à la diagonale principale). Illustration  :
+int[][] tab2Test = genTab2{3, 5};
+System.out.println(Arrays.deepToString(tab2Test)); // affichage avant
+tab2Test = transpose(tab2Test);
+System.out.println(Arrays.deepToString(tab2Test)); // affichage après
+
+La transposée du tableau à 3 lignes et 5 colonnes comporte 5 lignes et 3 colonnes.
+Chaque ligne d'indice i du tableau final correspond à la colonne d'indice i du tableau initial.
+*/
+
+// Solution
