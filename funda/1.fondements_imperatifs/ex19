@@ -7,7 +7,7 @@ de la première case de la première ligne à la dernière case de la dernière 
 public static void triBulleGlobal(int[][] tab) { /* ... */ }
 
 Exemple d'utilisation :
-int[] tab2Test = genTab2{3, 5};
+int[][] tab2Test = genTab2{3, 5};
 System.out.println(Arrays.deepToString(tab2Test)); // affichage avant
 triBulle2Bis(tab2Test); // tri global
 System.out.println(Arrays.deepToString(tab2Test)); // affichage après
