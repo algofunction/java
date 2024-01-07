@@ -1,0 +1,12 @@
+/*Instruction
+
+Compléter la méthode estCarre qui indique si un tableau à deux dimensions d'entiers comporte le même nombre de lignes et de colonnes. 
+Si le tableau est carré, la méthode renvoie 1. Elle renvoie 0 sinon.
+*/
+
+// Solution
+public static int estCarre(int[][] tab) {
+    for (int[] ligne : tab)
+        if (ligne.length != tab.length) return 0;
+    return 1;
+}
