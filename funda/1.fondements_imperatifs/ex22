@@ -1,0 +1,10 @@
+/*Instruction
+
+Compléter la méthode estCarreMagique qui indique si un tableau d'entiers est un carré magique. 
+Si le tableau est un carré magique, la méthode renvoie 2. 
+Si le tableau est un carré mais pas magique, la méthode renvoie 1. Dans les autres cas, elle renvoie 0.
+
+Programmer cette méthode en reprenant la méthode estCarre de l’exercice 21.
+*/
+
+// Solution
