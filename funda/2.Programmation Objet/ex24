@@ -1,0 +1,15 @@
+/*
+Instruction
+
+Créer la fonction initialize s'appliquant à un étudiant et qui initialise ses champs à partir d'un noom et d'un prénom 
+(le tableau de notes ne doit avoir de cases). Exemple :
+Etudiant e = new Etudiant();
+initialize(e, "ein", "albert");
+*/
+
+// Solution
+static void initialize(Etudiant e, String nom, String prenom){
+  e.nom = nom;
+  e.prenom = prenom;
+  e.notes = new double[0];
+}
