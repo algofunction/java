@@ -1,0 +1,25 @@
+/*Instruction
+
+Compléter la méthode estCarreMagiqueNormal qui indique si un tableau d'entiers est un carré magique normal. 
+Si c'est le cas, la méthode renvoie 3. 
+Si le tableau est un carré magique non normal, la méthode renvoie 2. 
+Si le tableau est un carré mais n'est pas magique, elle renvoie 1.
+Dans les autres cas, elle renvoie 0.
+
+Programmer cette méthode en reprenant la méthode estCarreMagique de l’exercice 22.
+*/
+
+// Solution
+public static int estCarreMagiqueNormal(int[][] tab) {
+    int cm = estCarreMagiqueNormal(tab);
+    if (cm != 2) return cm;
+    for (int n = 1; n< tab.length * tab.length; n++){
+        boolean trouve = false;
+        for (int i = 0; i < tab.length && ! trouve; i++)
+            for (int j = 0; j < tab[i].length && !trouve; j++)
+                if(tab[i][j] == n)
+                    trouve = true;
+        if (!trouve) return 2;
+    }
+    return 3;
+}
