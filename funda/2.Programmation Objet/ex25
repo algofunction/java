@@ -1,6 +1,29 @@
 /*Instruction
 
+Créer la fonction toString s'appliquant à un étudiant et qui renvoie un chaîne de 
+caractères qui représente l'étudiant conformément au schéma :
 
+NOM Prénom : note1 note2 ... noten.
+
+Le nom doit être en majuscules et le prénom en minuscules sauf l'initiale.
+
+Rappel des méthodes de String utiles pour cet exercice :
+String toUpperCase()
+String toLowerCase()
+char charAt(int i) // caractère à l'indice i
+static String valueOf(char c)  // création de chaîne 1 caractère
+String substring (int i) // extraction de chaîne à partir de i
 */
 
 // Solution 
+static String toString(Etudiant e) {
+    String nomMaj = e.nom.toUpperCase(); // nom en majuscules
+    // Initiale du prénom en majuscules :
+    String initiale = String.valueOf(e.prenom.charAt(0)).toUpperCase();
+    // Reste du prénom en minuscules :
+    String reste = e.prenom.substring(1).toLowerCase();
+    String representation = nomMaj + "_" + initiale + reste + "_:_";
+    for(double note : e.notes) representation += (note + "_");
+    return representation;
+}
+
