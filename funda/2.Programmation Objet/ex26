@@ -1,1 +1,16 @@
-4
+/*Instruction
+Créer la fonction addNote s'appliquant à un étudiant et à un flottant, et qui rajoute
+le flottant fourni dans le tableau des notes de l'étudiant.
+Le tableau doit contenir autant de cases que de notes. Exemple d'utilisation :
+
+Etudiant e = new Etudiant();
+initialize(e, "ein", "albert");
+addNote(e, 18.5); addNote(e, 4.0);
+String r = toString(e);
+*/
+
+// Solution 
+static void addNote(Etudiant e, double n) {
+    e.notes = Arrays.copyOf(e.notes, e.notes.length+1);
+    e.notes[e.notes.length-1] = n;
+}
