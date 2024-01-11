@@ -1,1 +1,14 @@
-t
+/*Instruction
+
+Créer la fonction moyenne s'appliquant à un étudiant et fournissant sa moyenne.
+Si l'étudiant n'a pas de note, sa moyenne vaut par défaut 0.
+*/
+
+// Solution
+static double moyenne(Etudiant e) {
+    if (e.notes.length==0) return 0;
+    double cumul = 0;
+    for (double note : e.notes) cumul += note;
+    return cumul/e.notes.length;
+}
+
