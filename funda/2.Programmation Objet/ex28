@@ -1,0 +1,13 @@
+/*Instructions
+
+Créer la fonction moyenneGenerale s'appliquant à un tableau d'étudiants et fournissant leurs moyennes générales.
+Si le tableau est vide, la moyenne générale vaut par défaut 0.
+*/
+
+// Solution 
+static double moyenneGenerale(Etudiant[] tab) {
+    if (tab.length==0) return 0;
+    double cumul = 0;
+    for (Etudiant e : tab) cumul += moyenne(e);
+    return cumul/tab.length;
+}
