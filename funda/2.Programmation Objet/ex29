@@ -1,0 +1,78 @@
+/*Instructions
+
+La fonction main suivante permet de tester les fonctions déjà définies. 
+Elle peut être intégrée dans une classe nommée par exemple Test).
+L'appel des fonctions de la classe Etudiant doit être préfixé par Etudiant.
+
+Dans les fonctions de la classe Etudiant, repérez celles qui s'appliquent à un paramètre x de type Etudiant, puis :
+- supprimer la déclaration du paramètre x dans l'entête de ces fonctions, 
+- remplacer les occurences de x par this dans le corps de ces fonctions, 
+- supprimer le mot-clé static dans la déclaration de ces fonctions,
+- transformer les appels de ces fonctions (de la forme Etudiant.f(x,...)) en appels de la forme x.f(...)(y compris dans la fonction main)
+
+Désormais, la classe Etudiant est un modèle d'objets. Les instances de la classe sont des objets de type Etudiant.
+Les fonctions qui ont été transformées sont appelées méthodes d'instance. Elles représentent les messages que l'on peut envoyer
+à un objet de type Etudiant, appelé receveur, et désigné par this dans le corps des méthodes.
+
+ Les méthodes concernées sont initialize, toString, addNote et moyenne. 
+ La méthode moyenneGenerale n'est pas concernée car elle ne s'applique pas à un paramètre qui pourrait naturellement
+ jouer le rôle de receveur :
+ */
+
+// Solution
+class Etudiant {
+    String nom, prenom ;
+    double [] notes;
+
+    void initialize(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.notes = new double[0];
+    }
+
+    public String toString(){
+        // Nom en majuscules:
+        String nomMaj = this.nom.toUpperCase();
+        // Initiale du prénom en majuscules:
+        String initiale =
+            String.valueOf(this.prenom.charAt(0)).toUpperCase();
+        //reste du prénom en minuscules : 
+        String reste = this.prenom.substring(1).toLowerCase();
+        String representation = nomMaj +"_" + initiale + reste +"_:_";
+        for (double note : this.notes) representation += (note + "_");
+        return representation;
+    }
+
+    void addNote(double n) {
+        this.notes = Arrays.copyOf(this.notes, this.notes.length + 1);
+        this.notes[this.notes.length - 1] = n;
+    }
+
+    double moyenne() {
+        if (this.notes.length == 0) return 0;
+        double cumul = 0;
+        for (double note : this.notes) cumul += note;
+        return cumul / this.notes.length;
+    }
+
+    static double moyenneGenerale(Etudiant[] tab) {
+        if(tab.length == 0) return 0;
+        double cumul = 0;
+        for(Etudiant e : tab) cumul += e.moyenne();
+        return cumul / tab.length;
+    } 
+}
+
+class Test {
+    public static void main(String[] argv) {
+        Etudiant e1 = new Etudiant();
+        Etudiant e2 = new Etudiant();
+        e1.initialize("ein","alb");
+        e2.initialize("bata","henri");
+        e1.addNote(18.5); e1.addNote(4.5);
+        e2.addNote(8.5); e2.addNote(14.5);
+        String r1 = e1.toString() + ";_moy._:_" + e1.moyenne();
+        String r2 = e2.toString() + ";_moy._:_" + e2.moyenne();
+        double moyG = Etudiant.moyenneGenerale(new Etudiant[]{e1,e2});
+    }
+}
