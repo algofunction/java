@@ -1,0 +1,33 @@
+/*Instructions
+
+La fonction initialize joue le rôle de constructeur.
+Transformer sa déclaration afin qu'elle coïncide avec celle d'un authentique
+constructeur Java, i.e. elle doit porter le nom de la classe, 
+et ne doit pas indiquer de type de retour.
+
+Transformer en conséquence les appels explicites de initialize dans la fonction
+main en appels implicites du constructeur en fournissant les paramètres d'initialisation
+dès l'instanciation par new.
+*/
+
+// Solution
+class Etudiant {
+    String nom, prenom ;
+    double [] notes;
+
+    Etudiant (String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.notes = new double[0];
+    }
+    /**/       
+}
+
+
+class Test{
+    public static void main(String[] argv){
+        Etudiant e1 = new Etudiant("ein","alb");
+        Etudiant e2 = new Etudiant("bata","henri");
+        /**/
+    }
+}
