@@ -1,3 +1,30 @@
-/**/
+/*Instructions
 
-//
+Intéressons-nous à la notion de promotion caractérisée par un nom (type string) et un ensemble d'étudiant (un tableau).
+Définir :
+- une classe représentant cette notion,
+- un constructeur permettant d'initialiser une promotion,
+- une méthode toString fournissant la représentation textuelle d'une promotion.
+
+Le constructeur doit permettre de fournir un nom à la promotion.
+A son initialisation, une promotion n'a aucun étudiant. La méthode toString fournit une chaîne de caractère conforme au schéma suivant :
+Nom [etudiant 1] ... [etudiant n] 
+*/
+
+// Solution
+class Promotion {
+    String nom;
+    Etudiant[] etudiants;
+
+    Promotion(String nom) {
+        this.nom = nom;
+        this.etudiants = new Etudiant[0]; 
+    }
+
+    public String toString () {
+        String representation = this.nom;
+        for(Etudiant e : this.etudiants)
+            representation += ("_[" + e.toString() + "]");
+        return representation;
+    }       
+}
