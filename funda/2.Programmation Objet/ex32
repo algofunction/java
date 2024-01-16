@@ -1,3 +1,15 @@
-/**/
+/*Instructions
 
-// Solution 
+Rajouter dans la classe Etudiant :
+- un attribut promo indiquant la promotion de l'étudiant,
+- un attribut id qui stocke un identifiant unique pour l'étudiant.
+
+L'identifiant unique est une chaîne de caractères.*/
+
+// Solution
+class Etudiant {
+    String nom, prenom;
+    double[] notes;
+    Promotion promo;
+    String id;    
+}
