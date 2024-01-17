@@ -1,0 +1,29 @@
+/*Instruction
+
+A son initialisation, un étudiant n'a pas de promotion, donc l'attribut promo contient null.
+L'identifiant unique est constitué du nom de l'étudiant en minuscules et d'un numéro d'ordre 
+qui s'incrémente à chaque initialisation d'étudiant.
+
+Illustration :
+Etudiant e1 = Etudiant("Ein","Alb");
+    // e1.id : "ein1"
+Etudiant e2 = Etudiant("Hein","Wer");
+    // e2.id : "hein2"
+Etudiant e3 = Etudiant("ein","J-F");
+
+Modifiez le constructeur de la classe Etudiant de manière à donner les valeurs
+initiales attendues aux attributs id et promo (sans rajouter de paramètres).
+*/
+
+// Solution
+class Etudiant {
+    static int nextId = 1; // pseudo-variable globale
+    Etudiant(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.notes = new double[0];
+        this.promo = null; // superflu
+        this.id = nom.toLowerCase() + nextId;
+        nextId++;
+    }
+}
