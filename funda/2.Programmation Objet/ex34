@@ -1,7 +1,32 @@
 /*Instructions
 
+Définir une méthode delE dans la classe Promotion s'appliquant à un étudiant,
+qui tente de le supprimer de la promotion.
+Il va renvoyer true s'il a effectivement été supprimé (false sinon : l'étudiant ne 
+peut être supprimé de la promotion que si il appartient à cette promotion).
 
-*/
+Si une promotion rassemble n étudiants, alors le tableau doit toujours comporter n cases.*/
+
+// Solution
+boolean delE (Etudiant e){    
+    if(e.promo != this) // 1
+        return false;
+    for(int i = 0; i<this.etudiants.length-1; i++) //2
+        if(this.etudiants[i] == e) { //3
+            this.etudiants[i] = this.etudiants[this.etudiants.length-1];
+            break;
+        }
+    //4
+    this.etudiants =
+        Arrays.copyOf(this.etudiants, this.etudiants.length-1);
+    //5 :
+    e.promo = null;
+    return true;
+}
 
 
-// Solution 
+// 1. ne pas supprimer un étudiant d'une autre promo
+// 2. l'étudiant est présent, on le remplace par le dernier
+// 3. on l'a trouvé
+// 4. mise à jour du tableau d'étudiants de la promotion :
+// 5. mise à jour de la promotion de l'étudiant
