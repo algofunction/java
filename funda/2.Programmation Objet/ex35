@@ -1,0 +1,27 @@
+/*Instructions :
+
+Définir la méthode addE dans la classe Promotion s'appliquant à un étudiant.
+Elle tente de l'ajouter à la promotion et renvoie true s'il a effectivement été ajouté (false sinon).
+L'étudiant ne peut être ajouté à la promotion que s'il n'appartient pas déjà à cette promotion.
+*/
+
+// Solution
+boolean addE (Etudiant e){    
+    if(e.promo == this) // 1
+        return false;
+    if(e.promo != null)
+        e.promo.delE(e); // 2
+    this.etudiants =
+        Arrays.copyOf(this.etudiants, this.etudiants.length+1); // 3
+    this.etudiants[this.etudiants.length-1] = e; // 4
+    e.promo = this;
+    return true;
+}
+
+// 1. e est déjà dans la promotion.
+/*  2. On retire e de sa promo courante. 
+A partir d'ici, e n'a pas ce promo,
+on copie le tableau avec une case de plus.
+*/
+// 3. On rajoute e en dernière case
+// 4. Mise à jour de la promotion de l'étudiant.
