@@ -1,0 +1,9 @@
+/*Instructions
+
+Définir une méthode moyennePromo dans la classe Promotion fournissant en résultat la moyenne générale de la promotion.
+*/
+
+// Solution
+double moyennePromo() {
+  return Etudiant.moyenneGenerale(this.etudiants);
+}
