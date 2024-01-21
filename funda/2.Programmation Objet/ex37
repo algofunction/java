@@ -1,0 +1,13 @@
+/*Instructions
+
+Définir la méthode getE dans la classe Promotion prenant en paramètre un identifiant
+d'étudiant et fournissant en résultat l'étudiant de la promotion qui correspond
+à l'identifiant fourni s'il existe, ou null sinon.
+*/
+
+// Solution
+Etudiant getE (String id) {
+  for(Etudiant e : this.etudiants)
+    if(e.id.equals(id)) return e;
+  return null;
+}
