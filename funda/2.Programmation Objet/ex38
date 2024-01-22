@@ -1,0 +1,26 @@
+/*Instructions
+
+Définir la méthode findE dans la classe Promotion prenant en paramètre un nom
+et fournissant rn résultat sous forme de tableau l'ensemble des étudiants
+de la promotion dont le nom est ou contient le nom fourni (sans tenir compte de 
+la casse). Méthodes de String utiles pour cet exercice.
+
+Pour s'abstraire de la casse, il suffit de mettre en minuscules le nom fourni 
+en paramètre, puis de le rechercher dans les noms d'étudiants eux-mêmes mis en
+minuscules.
+*/
+
+// Solution
+Etudiant[] findE(String nom){    
+    nom = nom.toLowerCase(); // 1
+    Etudiant[] resultat = new Etudiant[this.etudiants.length];
+    int nbe = 0; // 2
+    for(Etudiant e : this.etudiants)
+        if (e.nom.toLowerCase().contains(nom))
+            resultat[nbe++] = e; // 3
+    return Arrays.copyOf(resultat, nbe);
+}
+
+// 1. mise en minuscules
+// 2. nombre d'étudiants trouvés
+// 3. renvoi un tableau bien dimensionné
