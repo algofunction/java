@@ -8,4 +8,14 @@ une série d'étudiants (nombre variable) en plus du nom de la promotion, et ajo
 tous les étudiants fournis dans la nouvelle promotion.
 */
 
-// Solution 
+// Solution
+Etudiant(String nom, String prenom, Promotion promo){
+    this(nom, prenom); 
+    promo.addE(this);
+}
+
+Promotion(String nom, Etudiant... etudiants){
+    this(nom);
+    for (Etudiant e : etudiants) this.addE(e);
+}
+
