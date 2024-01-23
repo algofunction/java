@@ -1,5 +1,11 @@
 /*Instructions 
 
+Ajouter un constructeur dans la classe Etudiant prenant en paramètre 
+la promotion du nouvel étudiant (en plus de son nom et prénom).
+
+Ajouter également un constructeur dans la classe Promotion prenant en paramètre
+une série d'étudiants (nombre variable) en plus du nom de la promotion, et ajoutant
+tous les étudiants fournis dans la nouvelle promotion.
 */
 
 // Solution 
