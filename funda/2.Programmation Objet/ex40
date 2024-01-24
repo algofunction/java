@@ -1,0 +1,16 @@
+/*Instruction
+
+Un étudiant boursier est un étudiant disposant d'une bourse ayant un échelon (entier compris entre 1 et 5).
+Définir la classe EtudiantBoursier héritant de Etudiant et rajoutant un attibut nommé echelon.
+Définir un constructeur pour cette classe prenant (entre autre) en paramètre une valeur d'échelon.
+Les valeurs fournies inférieures à 1 seront assimilées à 1, et celles supérieures à 5 seront assimilées à 5.
+*/
+
+// Solution
+class EtudiantBoursier extends Etudiant{
+    int echelon;
+    EtudiantBoursier(String nom, String prenom, int echelon) {
+        super (nom, prenom); // construction de la partie héritée
+        this.echelon = (echelon<1 ? 1 : (echelon>5 ? 5 : echelon));
+    }
+}
