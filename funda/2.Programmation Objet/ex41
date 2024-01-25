@@ -1,3 +1,25 @@
-/**/
+/*Instruction
 
-//
+Définir un constructeur de la classe EtudiantBoursier prenant en plus en paramètre la promotion de l'étudiant, 
+en vous appuyant sur le constructeur à :
+- 3 paramètres de Etudiant 
+- 2 paramètres de Etudiant
+- 3 paramètres de EtudiantBoursier
+*/
+
+// Solution
+EtudiantBoursier(String n, String p, int echelon, Promotion promo){
+    super(n, p, promo); // construction de la partie héritée
+    this.echelon = (echelon<1 ? 1 : (echelon>5 ? 5 : echelon));
+}
+
+EtudiantBoursier(String n, String p, int echelon, Promotion promo){
+    super(n, p); // construction de la partie héritée
+    promo.addE(this);
+    this.echelon = (echelon<1 ? 1 : (echelon>5 ? 5 : echelon));
+}
+
+EtudiantBoursier(String n, String p, int echelon, Promotion promo){
+    this(n, p, echelon); // appel de l'autre constructeur
+    promo.addE(this);
+}
