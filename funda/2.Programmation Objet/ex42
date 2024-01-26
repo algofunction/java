@@ -1,2 +1,4 @@
 /*Instruction
-Définir une méthode 
+Définir une méthode toString dans la classe EtudiantBoursier fournissant une représentation de la forme : (b) NOM Prénom : note1 note2 ... Noten*/
+
+// Solution
