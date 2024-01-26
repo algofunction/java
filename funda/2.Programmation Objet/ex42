@@ -2,3 +2,6 @@
 Définir une méthode toString dans la classe EtudiantBoursier fournissant une représentation de la forme : (b) NOM Prénom : note1 note2 ... Noten*/
 
 // Solution
+public String toString(){
+  return "(b)_"+super.toString();
+}
