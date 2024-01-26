@@ -1,5 +1,5 @@
 /*Instruction
-Définir une méthode toString dans la classe EtudiantBoursier fournissant une représentation de la forme : (b) NOM Prénom : note1 note2 ... Noten*/
+Définir une méthode toString dans la classe EtudiantBoursier fournissant une représentation de la forme : (b) NOM Prénom : note1 note2 ... noten*/
 
 // Solution
 public String toString(){
