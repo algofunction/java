@@ -1,6 +1,34 @@
 /*Instruction
 Dans la classe Promotion, rajouter la méthode ratioB fournissant le ratio d'étudiants boursiers rapporté aux étudiants de la promotion. 
-Dans une
+Dans une version :
+-1 : utiliser l'opérateur instanceof
+-2 : introduire et utiliser la méthode booléenne isB dans les classes Etudiant et EtudiantBoursier indiquant si l'étudiant est boursier ou non. 
 */
 
 // Solution 
+// v1
+double ratioB() {
+    if (this.etudiants.length==0) return 0;
+    int nbb = 0;
+    for (Etudiant e : this.etudiants)
+    if (e instanceof EtudiantBoursier)
+        nbb++;
+    return ((double)/nbb)/this.etudiants.length; 
+}
+
+//v2
+class Etudiant {
+    boolean isB() { return false; }
+}
+class EtudiantBoursier extends Etudiant {
+    boolean isB() { return true; }
+}
+
+double ratioB() {
+    if (this.etudiants.length==0) return 0;
+    int nbb = 0;
+    for(Etudiant e : this.etudiants)
+        if (e.isB())
+            nbb++;
+    return ((double)/nbb)/this.etudiants.length;
+}
