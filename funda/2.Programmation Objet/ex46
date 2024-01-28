@@ -1,0 +1,38 @@
+/*Instructions
+
+Définir les classes Produit, Fournisseur et MiseEnVente. Les ensembles seront représentés par 
+des tableaux contenant toujours exactement le nombre de cases nécessaires (i.e. les n éléments d'un ensemble
+sont dans un tableau à n cases exactement).
+Définir également des constructeurs pour ces classes qui permettent de créer :
+- un produit non mis en vente dont la désignation est fournie en paramètre
+- un fournisseur sans produit en vente dont le nom est fourni en paramètre
+- une mise en vente dont le fournisseur, le produit et le prix unitaire sont fournis en paramètre.
+*/
+
+// Solution
+class Fournisseur {
+    String nom;
+    MiseEnVente[] produitsEnVente;
+    Fournisseur(String nom) {
+        this.nom = nom;
+        this.produitsEnVente = new MiseEnVente[0];
+    }
+}
+class Fournisseur {
+    String designation;
+    MiseEnVente[] fournisseursDuProduit;
+    Produit(String designation) {
+        this.designation = designation;
+        this.fournisseursDuProduit = new MiseEnVente[0];
+    }
+}
+class MiseEnVente {
+    Fournisseur fournisseur;
+    Produit produit;
+    double prixUnitaire;
+    MiseEnVente(Fournisseur f, Produit p, double prix) {
+        this.fournisseur = f;
+        this.produit = p;
+        this.prixUnitaire = prix;
+    }
+}
