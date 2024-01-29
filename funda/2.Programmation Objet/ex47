@@ -1,4 +1,27 @@
-/**/
+/*Instructions
+
+Passer en revue les mises en vente du fournisseur et à chercher le produit fourni en paramètre :
+- si on le trouve : son prix est mis à jour
+- sinon on crée une nouvelle mise en vente qu'on enregistre dans le tableau des mises en vente. Et réciproquement,
+on l'enregistre dans le tableau des mises en vente du produit.
+*/
 
 
 // Solution 
+void addProduit(Produit p, double prix) {
+    for (MiseEnVente mev : this.produitsEnVente)
+        if (p == mev.produit) { // le produit existe déjà
+            mev.prixUnitaire = prix; // le prix est mis à jour
+            return;}
+    // nouvelle mise en vente :
+    MiseEnVente mev = new MiseEnVente(this, p, prix);
+    // on recrée le tableau avec une case en plus:
+    this.produitsEnVente = Arrays.copyOf(this.produitsEnVente,
+                                this.produitsEnVente.length+1);
+    // la nouvelle mise en vente est rajoutée en dernière case :
+    this.produitsEnVente[this.produitsEnVente.length - 1] = mev;
+    // les mises en vente de p doivent être mises à jour :
+    p.fournisseursDuProduit = Arrays.copyOf(p.fournisseursDuProduit,
+                                    p.fournisseursDuProduit.length+1);
+    p.fournisseursDuProduit[p.fournisseursDuProduit.length - 1] = mev;
+}
