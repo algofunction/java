@@ -1,5 +1,8 @@
 /*Instruction
 
+De manière symétrique, définir la méthode addFournisseur dans la classe Produit prenant en paramètre un fournisseur et un prix unitaire. 
+
+
 */
 
 // Solution 
