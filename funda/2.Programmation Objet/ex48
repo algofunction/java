@@ -1,8 +1,27 @@
 /*Instruction
 
 De manière symétrique, définir la méthode addFournisseur dans la classe Produit prenant en paramètre un fournisseur et un prix unitaire. 
-
-
+Il le rajoute aux mises en vente du produit, toujours en respectant la contrainte de cohérence.
+Pour cette méthode, si le fournisseur vend déjà le produit, il n'est pas rajouté mais son prix unitaire est mis à jour.
 */
 
-// Solution 
+// Solution
+void addFournisseur(Fournisseur f, double prix){
+    for (MiseEnVente mev : this.fournisseursDuProduit)
+        if (f == mev.fournisseur){
+            mev.prixUnitaire = prix;
+            return;}
+    // nouvelle mise en vente :
+    MiseEnVente mev = new MiseEnVente(f, this, prix);
+    // on recrée le tableau avec une case en plus :
+    this.fournisseursDuProduit =
+            Arrays.copyOf(this.fournisseursDuProduit,
+                          this.fournisseursDuProduit.length+1);
+    // la nouvelle mise en vente est rajoutée en dernière case :
+    this.fournisseursDuProduit[this.fournisseursDuProduit.length-1]
+            = mev;
+    // les mises en vente de f doivent être mises à jour :
+    f.produitsEnVente = Arrays.copyOf(f.produitsEnVente,
+                                      f.produitsEnVente.length+1);
+    f.produitsEnVente[f.produitsEnVente.length-1] = mev;
+}
