@@ -1,3 +1,27 @@
+/*Instructions
 
+Définir des méthodes toString dans les classes Produit et Fournisseur renvoyant des représentations littérales de la forme :
+- designation [ nom f1 (prix f1 €) ... nom fn (prix fn €) ] pour un produit
+- nom [ designation p1 (prix p1 €) ... designation pn (prix pn €) ] pour un fournisseur.
+*/
 
-/**/
+// Solutions
+public class Produit { /* */
+    public String toString(){
+        String resultat = designation + "_[_";
+        for (MiseEnVente mev : this.fournisseursDuProduit)
+            resultat += (mev.fournisseur.nom
+                +"_(" + mev.prixUnitaire + "_)_");
+                return resultat + "]";
+    }
+}
+
+public class Fournisseur { /* */
+    public String toString () {
+        String resultat = nom + "_[_";
+        for (MiseEnVente mev : this.produitsEnVente)
+            resultat += (mev.produit.designation
+                + "_(" + mev.prixUnitaire+"_)_");
+        return resultat +"]";
+    }
+}
