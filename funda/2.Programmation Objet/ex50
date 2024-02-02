@@ -1,6 +1,34 @@
 /*Instructions
 
+Un fournisseur contractuel est un fournisseur qui doit par contrat appliquer une remise sur tous les produits qu'il met en vente.
+Cette remise est exprimée sous forme de pourcentage de réduction.
+Un fournisseur contractuel est donc caractérisé par un nom, 
+par l'ensemble des produits qu'il propose à la vente et par le pourcentage de remise.
 
+Définir la classe FournisseurContractuel héritant de la classe Fournisseur et disposant :
+- d'un attribut représentant la remise
+- d'un constructeur permettant d'initialiser le nom de la remise
+- d'une redéfinition de addProduit permettant d'enregistrer ou de mettre à jour
+une mise en vente en tenant compte de la remise (e.g. un objet vendu à 5€ avec une remise de 5% sera enregistré à 4,75€)
+- d'une redéfinition de toString fournissant une représentation de la forme :
+nom [ designation p1 (prix p1 €) ... designation pn (prix pn €)] (rem. : remise %).
+
+Le constructeur doit s'appuyer sur le constructeur de la classe héritée via super.
+Les redéfinitions de addProduit et de toString sont très courtes si on réutilise les méthodes héritées (via super).
 */
 
 // Solution 
+public class FournisseurContractuel extends Fournisseur {
+    double pourcentageDeRemise;
+    FournisseurContractuel(String nom, double pourcentageDeRemise) {
+        super(nom);
+        this.pourcentageDeRemise = pourcentageDeRemise;
+    }
+    void addProduit(Produit p, double prix) {
+        super.addProduit(p, prix*(100-this.pourcentageDeRemise)/100);
+    }
+    public String toString() {
+        return super.toString()
+            + "_(remise_:_"+this.pourcentageDeRemise+"%)";
+    }
+}
