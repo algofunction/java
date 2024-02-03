@@ -1,0 +1,15 @@
+/*Instructions
+Rajouter dans la classe Produit la méthode leMoinsCher renvoyant le fournisseur vendant le produit 
+le moins cher (ou null si le produit n'est pas en vente).
+*/
+
+// Solution
+fournisseur leMoinsCher() {
+    if (this.fournisseurDuProduit.length == 0) return null;
+    MiseEnVente mev = this.fournisseurDuProduit[0];
+    for (int i = 1; i < this.fournisseurDuProduit.length; i++)
+        if (this.fournisseurDuProduit[i].prixUnitaire
+            < mev.prixUnitaire)
+            mev = this.fournisseurDuProduit[i];
+    return mev.fournisseur;
+}
