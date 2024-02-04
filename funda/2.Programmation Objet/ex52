@@ -1,8 +1,33 @@
 /*Instructions
 
+Voyons la notion de commande de différents produits par différents fournisseurs.
+Voyons la notion de ligne de commande rassemblant un fournisseur, 
+un produit et une quantité.
+La quantité désigne le nombre d'exemplaires du produit commandé auprès du fournisseur.
+Définir la classe LigneDeCommande représentant une ligne de commande avec :
+- un attribut désignant une mise en vente
+- un attribut désignant la quantité commandée.
 
+La ligne est dite erronée si la mise en vente n'est pas renseignée (i.e. le premier attribut contient null).
 
+Créer un constructeur prenant en paramètre un fournisseur, un produit et une quantité.
+Si le fournisseur ne vend pas le produit, alors la ligne doit être erronée.
+
+On doit vérifier que le fournisseur vend effectivement le produit, soit vérifier que le produit est effectivement
+vendu par le fournisseur. 
 */
 
-
 // Solution
+public class LigneDeCommande {
+    MiseEnVente mev;
+    int quantite;
+
+    LigneDeCommande(Fournisseur f, Produit p, int quantite) {
+        for (MiseEnVente mev : f.produitsEnVente)
+            if (mev.produit == p) { // on a trouvé la bonne ligne
+                this.mev = mev;
+                this.quantite = quantite;
+                break; // on peut arrêter le parcours des lignes 
+            }
+    }
+}
