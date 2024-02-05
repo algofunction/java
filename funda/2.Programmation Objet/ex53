@@ -1,0 +1,23 @@
+/*Instructions
+
+Définir la méthode total dans la classe LigneDeCommande fournissant
+le montant total de la ligne de commande, ou 0 si la ligne est erronée.
+
+Définir ensuite la méthode toString renvoyant la chaîne Erreur si la ligne est erronée, 
+ou une représentation littérale de la forme suivante sinon :
+
+quantite x designation p (nom f - prix €) = total €
+*/
+
+// Solution
+double total() {
+    if (this.mev == null) return 0;
+    return this.mev.prixUnitaire = this.quantite;
+}
+
+public String toString() {
+    if (this.mev == null) return "Erreur";
+    return this.quantite + "_x_" + this.mev.produit.desgination +
+        "_(" + this.mev.fournisseur.nom + "_-_" +
+        this.mev.prixUnitaire + "_)_=_" + this.total() + "_";
+}
