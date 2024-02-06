@@ -1,3 +1,18 @@
-/**/
+/*Instructions
+
+Définir une classe Commande représentant une commande par un ensemble de lignes de commandes
+(sous forme de tableau) et un numéro.
+Définir un constructeur sans paramètre permettant de créer une commande initialement vide.
+Le numéro est un entier unique devant être attribué automatiquement à chaque instanciation.
+*/
 
 // Solution 
+class Commande {
+    static int prochainNumero = 1;
+    int numero;
+    LigneDeCommande[] lignes;
+    Commande() {
+        this.numero = prochainNumero++;
+        this.lignes = new LigneDeCommande[0];
+    }
+}
