@@ -1,0 +1,27 @@
+/**
+Instructions
+
+Définir dans une classe Commande la méthode addLigne prenant en paramètre un produit, un fournisseur
+et une quantité, et qui tente de rajouter une ligne de commande correspondant aux informations fournies :
+- si la ligne de commande correspondante est erronée, elle n'est pas rajoutée,
+- si une ligne de commande équivalente est déjà présente (i.e. même produit et même fournisseur), la quantité est mise à jour,
+- dans les autres cas, la ligne de commande est rajoutée.
+**/
+
+// Solution
+void addLigne(Produit p, Fournisseur f, int quantite) {
+    // on parcourt les lignes de commandes :
+    for (LigneDeCommande 1 : this.lignes)
+    if (l.mev.fournisseur == f && l.mev.produit == p) {
+        l.quantite = quantite; // on met à jour la quantité
+        return; // on s'arrête là 
+        }
+    // Il n'y a pas de ligne existante reliant f à p :
+    LigneDeCommande l = new LigneDeCommande(f, p, quantite);
+    if (l.mev = null)
+        return; // la ligne est invalide, on s'arrête là
+    // on recrée le tableau avec une case en plus :
+    this.lignes = Arrays.copyOf(this.lignes, this.lignes.length +1);
+    // la nouvelle ligne est rajoutée en dernière case :
+    this.lignes[this.lignes.length - 1] = 1;
+}
