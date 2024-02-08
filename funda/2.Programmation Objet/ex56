@@ -1,5 +1,24 @@
 /*Instructions
 
+Définir dans la classe Commande la méthode total indiquant le montant total de la commande.
+Définir ensuite la méthode toString renvoyant une représentation littérale sur plusieurs lignes de la forme :
+COMMANDE n° x
+- quantite x designation p1 (nom f1 - prix €) = total1 €
+...
+- quantite x designation pn (nom fn - prix €) = totaln €
+TOTAL : totalcommande €
 **/
 
 // Solution 
+double total() {
+    double res = 0;
+    for (LigneDeCommande l : this.lignes) res += 1.total();
+    return res;
+}
+
+public String toString() {
+    String res = "COMMANDE_°n" + this.numero + "\n";
+    for (LigneDeCommande l : this.lignes)
+        res += ("-_" + l.toString() + "\n");
+    return res + ("TOTAL_:_" + this.total() + "_");
+}
