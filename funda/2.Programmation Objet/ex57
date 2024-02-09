@@ -1,0 +1,52 @@
+/*Instructions
+
+Créer les classes Repertoire, Fichier et Lien qui représentent ces notions.
+Pour cette première version, ne créer pas d'autres classes.
+
+Définir les constructeurs permettant de créer un :
+- fichier à partir d'un nom 
+- lien à partir d'un nom et d'une cible
+- répertoire à partir d'un nom.
+
+Le contenu d'un répertoire sera représenté par un tableau initialement vide
+qui devra être recréé à chaque mise à jour.
+**/
+
+// Solution
+class Fichier{
+    String nom;
+
+    Fichier(String nom){
+        this.nom = nom;
+    }
+}
+
+class Lien{
+    String nom;
+    Fichier ciblef;
+    Repertoire cibler;
+
+    Lien(String nom, Fichier cible){
+        this.ciblef = cible;
+        this.cibler = null;
+    }
+
+    Lien(String nom, Repertoire cible){
+        this.ciblef = null;
+        this.cibler = cible;
+    }
+}
+
+class Repertoire{
+    String nom;
+    Repertoire[] repertoires;
+    Fichier[] fichiers;
+    Lien[] liens;
+
+    Repertoire(String nom) {
+        this.nom = nom;
+        this.repertoires = new Repertoire[0];
+        this.fichiers = new Fichier[0];
+        this.liens = new Lien[0]; 
+    }
+}
