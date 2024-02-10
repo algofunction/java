@@ -1,0 +1,41 @@
+/*Instructions
+
+Améliorons la logique du code et le simplifier en introduisant :
+- la cible d'un lien est soit un fichier, soit un répertoire
+- un élément de répertoire est soit un fichier, soit un répertoire, soit un lien (soit une cible de lien, soit un lien).
+
+Modifier le code précédent afin d'intégrer ces nouvelles notions.
+Mettre à jour les constructeurs en conséquence.
+**/
+
+// Solution
+abstract class ElementDeRepertoire {
+    String nom;
+    ElementDeRepertoire(String nom) {
+        this.nom = nom;
+    }
+}
+
+abstract class CibleDeLien extends ElementDeRepertoire {
+    CibleDeLien(String nom) { super(nom); }
+}
+
+class Lien extends ElementDeRepertoire{
+    CibleDeLien cible; // cible de type Fichier ou Repertoire
+    Lien(String nom, CibleDeLien cible) {
+        super(nom);
+        this.cible = cible;
+    }
+}
+
+class Fichier extends CibleDeLien{
+    Fichier(String nom) { super(nom); }
+}
+
+class Repertoire extends CibleDeLien {
+    ElementDeRepertoire[] contenu;
+    Repertoire(String nom) {
+        super (nom);
+        this.contenu = new ElementDeRepertoire[0];
+    }
+}
