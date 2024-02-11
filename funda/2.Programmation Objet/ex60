@@ -1,0 +1,18 @@
+/**Instructions
+
+Créer la méthode addElementDeRepertoire dans la classe Repertoire prenant en paramètre un élément
+de répertoire et l'ajoutant au contenu, seulement si cet élément ne porte pas un
+nom déjà existant dans le répertoire.
+Cette méthode renvoie l'objet fourni en paramètre si l'ajout a été possible, ou null
+sinon.
+*/
+
+// Solution
+ElementDeRepertoire addElementDeRepertoire(ElementDeRepertoire nouvEDR) {
+    for(ElementDeRepertoire edr : this.contenu)
+        if(edr.nom.equals(nouvEDR.nom)) return null;
+    // on peut ajouter l'élément
+    this.contenu = Arrays.copyOf(this.contenu, this.contenu.length+1);
+    this.contenu[this.contenu.length-1] = nouvEDR;
+    return nouvEDR;
+}
