@@ -1,0 +1,26 @@
+/*Instructions
+
+Définir dans la classe Repertoire les méthodes createFich, createRep et createLien permettant de créer respectivement :
+- un fichier,
+- un répertoire
+- et un lien et de l'ajouter au contenu si cet élément ne porte pas un nom déjà existant dans le répertoire.
+
+Ces méthodes renvoient l'élément créé ou null si l'ajout n'a pas été possible.
+**/
+
+
+// Solution
+Fichier createFich(String nom){
+    Fichier f = new Fichier(nom);
+    return(Fichier) this.addElementDeRepertoire(f);
+}
+
+Repertoire createRep(String nom){
+    Repertoire r = new Repertoire(nom);
+    return(Repertoire) this.addElementDeRepertoire(r);
+}
+
+Lien createLien(String nom, CibleDeLien c) {
+    Lien l = new Lien(nom, c);
+        return (Lien) this.addElementDeRepertoire(l);
+}
