@@ -1,6 +1,6 @@
 /*Instructions
 
-Améliorons la logique du code et le simplifier en introduisant :
+Améliorer la logique du code et le simplifier en introduisant :
 - la cible d'un lien est soit un fichier, soit un répertoire
 - un élément de répertoire est soit un fichier, soit un répertoire, soit un lien (soit une cible de lien, soit un lien).
 
