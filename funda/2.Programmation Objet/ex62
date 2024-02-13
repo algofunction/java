@@ -1,7 +1,23 @@
-/*Instructions
+/*Instructions**/
+
+/*1. Pour rendre les classes Repertoire, Fichier et Lien accessibles de l’extérieur de fs, il faut les rendre publiques,
+Les classes abstraites ElementDeRepertoire et CibleDeLien restent locales à fs :**/
+
+abstract class ElementDeRepertoire 
+abstract class CibleDeLien 
+public class Fichier
+public class Lien
+public class Repertoire
 
 
-urn:uuid:f0816700-f2d0-4b0e-b8e8-35ebb7768dee
-**/
+/*2. Pour rendre inopérant l’opérateur new  sur Repertoire, Fichier et Lien de l’extérieur de fs, 
+restreignons la visibilité des constructeurs à fs.
+La visibilité par défaut est suffisante (pas de modificateur). Au besoin, 
+on peut étendre la visibilité aux classes dérivées (modificateur protected) :**/
 
-// Solution
+protected ElementDeRepertoire (String nom)
+protected CibleDeLien (String nom)
+protected Fichier (String nom)
+protected Lien (String nom, CibleDeLien cible)
+protected Repertoire (String nom)
+
