@@ -57,3 +57,12 @@ public class Repertoire extends CibleDeLien {
 createRep, createLien et getNom, il suffit de les rendre publiques et de s'assurer
 qu'aucun autre membre ne l'est (en particulier addElementDeRepertoire) : */
 
+public class Repertoire extends CibleDeLien {
+    private ElementDeRepertoire[] cotenu;
+    public ElementDeRepertoire[] getContenu()
+    protected Repertoire(String nom)
+    private ElementDeRepertoire addElementDeRepertoire(ElementDeRepertoire e)
+    public Fichier createFich(String nom)
+    public Repertoire createRep(String nom)
+    public Lien createLien(String nom, CibleDeLien c)
+}
