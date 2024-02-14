@@ -21,3 +21,39 @@ protected Fichier (String nom)
 protected Lien (String nom, CibleDeLien cible)
 protected Repertoire (String nom)
 
+/*3. Pour rendre le nom accessible en lecture mais pas en écriture,
+on peut le rendre public et constant, ou le rendre privé ou protégé et introduire
+un getter public :
+**/
+abstract class ElementDeRepertoire {
+    protected String nom;
+    public String getNom() {return this.nom;}
+}
+
+//4. Le même principe s'applique à la cible d'un lien :
+public class Lien extends ElementDeRepertoire {
+    protected CibleDeLien cible;
+    public CibleDeLien getCible() {return this.nom;}
+}
+
+/*5. Le contenu d'un répertoire est représenté par un tableau.
+Il ne peut pas être public car il pourrait être remplacé de l'extérieur
+par une simple affectation. Il ne peut pas être constant car il ne pourrait
+pas être recréé par addElementDeRepertoire.
+Un simple getter n'est pas suffisant car il n'empêcherait pas la modification de
+son contenu depuis l'extérieur.
+Il faut donc rendre le tableau privé ou protégé et définir un getter renvoyant une copie
+du tableau et non pas le tableau lui-même : */
+
+public class Repertoire extends CibleDeLien {
+    private ElementDeRepertoire[] contenu;
+    public ElementDeRepertoire[] getContenu() {
+        return this.contenu.clone();
+    } 
+}
+
+
+/*6. Pour restreindre l'utilisation de Repertoire aux seules méthodes createFich,
+createRep, createLien et getNom, il suffit de les rendre publiques et de s'assurer
+qu'aucun autre membre ne l'est (en particulier addElementDeRepertoire) : */
+
