@@ -1,0 +1,32 @@
+/*Instructions
+
+De l'extérieur du package fs, créer un fichier, un lien
+ou un répertoire n'est désormais possible qu'à partir d'un répertoire existant.
+Il en faut donc au moins un au départ : le répertoire racine.
+
+Trouvez une solution pour fournir à l'extérieur du package fs un répertoire
+unique et partout accessible qui représente la racine.
+
+Compléter ensuite la utilisation.de.fs. Cette méthode main doit permettre de créer :
+- un répertoire temp à la racine
+- un fichier f.txt dans temp
+- un lien à la racine nommé lf.txt vers le fichier f.txt.
+**/
+
+// Solution
+public class Repertoire extends CibleDeLien {
+    public static final Repertoire RACINE = new Repertoire(""); 
+}
+
+
+package utilisation.de.fs;
+import fr.*; 
+import static fs.Repertoire.RACINE;
+
+public class Programme {
+    public static void main(String[] args){
+        Repertoire temp = RACINE.createRep("temp");
+        Fichier f = temp.createFich("f.txt");
+        Lien lf = RACINE.createLien("lf.txt", f);
+    }
+}
