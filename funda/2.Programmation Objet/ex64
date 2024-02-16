@@ -1,0 +1,29 @@
+/*Instructions
+Modifier le code de manière à ce qu'un fichier, un répertoire ou un lien
+ait accès au répertoire qui le contient.
+
+Utiliser ensuite cette nouvelle propriété pour programmer la méthode
+getNomAbs de la classe ElementDeRepertoire renvoyant une chaîne de caractères.
+Cette chaîne correspond au nom absolu de l'élément.
+**/
+
+// Solution
+abstract class ElementDeRepertoire{
+    protected Repertoire conteneur;
+    protected ElementDeRepertoire(Repertoire conteneur, String nom){
+        this.conteneur = conteneur;
+        this.nom = nom;
+    }
+    /* ... */
+    public Repertoire getConteneur(){ return this.conteneur; }
+
+    public String getNomAbs(){
+        if (this == Repertoire.RACINE) return "/";
+        String res = "/" + this.nom;
+        for (ElementDeRepertoire e = this.conteneur;
+                e != Repertoire.RACINE;
+                e = e.conteneur)
+            res = "/"+e.nom + res;
+        return res;
+    }
+}
