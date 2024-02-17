@@ -27,3 +27,49 @@ abstract class ElementDeRepertoire{
         return res;
     }
 }
+
+
+abstract class CibleDeLien extends ElementDeRepertoire {
+    protected CibleDeLien(Repertoire conteneur, String nom){
+        super(conteneur, nom);
+    }
+}
+
+public class Fichier extends CibleDeLien {
+    protected Fichier(Repertoire conteneur, String nom){
+        super(conteneur, nom);
+    }
+}
+
+
+
+public class Lien extends ElementDeRepertoire{
+    protected Lien(Repertoire conteneur, String nom, CibleDeLien cible){
+
+        super(conteneur, nom);
+        this.cible = cible; 
+    }
+    /* ... */
+}
+public class Repertoire extends CibleDeLien{
+    protected Repertoire(Repertoire conteneur, String nom){
+        super(conteneur, nom);
+        this.contenu = new ElementDeRepertoire[0];    
+    }
+
+    public Fichier createFich(String nom){
+        Fichier f = new Fichier(this, nom);
+        return(Fichier) this.addElementDeRepertoire(f);
+    }
+
+    public Repertoire createRep(String nom){
+        Repertoire r = new Repertoire(this, nom);
+        return(Repertoire) this.addElementDeRepertoire(r);
+    }
+
+    public Lien createLien(String nom, CibleDeLien c){
+    Lien 1 = new Lien(this, nom, c);
+        return (Lien) this.addElementDeRepertoire(l);
+    }
+    /* ... */
+}
