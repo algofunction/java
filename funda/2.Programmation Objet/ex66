@@ -1,0 +1,16 @@
+/*Instructions
+
+Définir la classe SimpleChainage représentant une chaîne d'objets par la référence de son premier chaînon (attribut debut).
+La chaîne est vide lorsque la référence est null.
+Définir également la méthode addDebut permettant de rajouter un nouvel objet en début de chaîne.
+L'objet doit exister (i.e. référence null interdite). 
+**/
+
+// Solution
+public class SimpleChainage {
+  Chainon debut;
+  void addDebut(Object o){
+    if(o!=null)
+      this.debut = new Chainon(o, this.debut);
+  }
+}
