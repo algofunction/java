@@ -1,0 +1,17 @@
+/*Instructions
+
+Définir la classe Chainon à l'intérieur de la classe SimpleChainage
+de manière à ce qu'elle ne soit pas accessible de l'extérieur.
+
+Définir ensuite un constructeur prenant en paramètre une série d'objets (en nombre variable,
+éventuellement aucun) et créant une chaîne comportant les objets fournis en respectant leur ordre.
+Définir enfin la méthode toString fournissant une représentation de la chaîne correspondant à ses 
+éléments séparés par des espaces.
+**/
+
+// Solution
+private class SimpleChainage {
+  private static class Chainon {
+    Object val;
+    Chainon next;
+    Chainon(Object val, Chainon next) { 
