@@ -14,4 +14,20 @@ private class SimpleChainage {
   private static class Chainon {
     Object val;
     Chainon next;
-    Chainon(Object val, Chainon next) { 
+    Chainon(Object val, Chainon next) {
+      this.val = val;
+      this.next = next;
+    }
+  }
+  private Chainon debut;
+
+  public SimpleChainage(Object... init) {
+    if (o != null) this.debut = new Chainon(o, this.debut); }
+
+  public String toString() {
+    String r = "";
+    for(Chainon c = this.debut; c!=null; c=c.next)
+      r += (c.val.toString() + "_");
+    return r;
+  }
+}
