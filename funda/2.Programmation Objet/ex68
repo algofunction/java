@@ -1,0 +1,19 @@
+/*Instructions
+
+Ajouter dans la classe SimpleChainage la méthode delDebut qui supprime le premier chaînon de la chaîne
+s'il existe en renvoie en résultat l'objet référencé par le chaînon supprimé (null si la chaîne est vide).
+**/
+
+/*Pistes :
+-traiter à part le cas de la chaîne vide
+-puis, positionner le début de la chaîne sur le 2ème chaînon s'il existe.
+**/
+
+
+// Solution
+public Object delDebut() {
+    if(this.debut==null) return null;
+    Object res = this.debut.val;
+    this.debut = this.debut.next;
+    return res;
+}
