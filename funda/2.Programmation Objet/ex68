@@ -1,7 +1,7 @@
 /*Instructions
 
 Ajouter dans la classe SimpleChainage la méthode delDebut qui supprime le premier chaînon de la chaîne
-s'il existe en renvoie en résultat l'objet référencé par le chaînon supprimé (null si la chaîne est vide).
+s'il existe et renvoie en résultat l'objet référencé par le chaînon supprimé (null si la chaîne est vide).
 **/
 
 /*Pistes :
