@@ -1,6 +1,56 @@
 /*Instructions
-ajouter dans la classe SimpleChainage l'attribut fin de type Chaînon désignant 
 
+Ajouter dans la classe SimpleChainage l'attribut fin de type Chaînon désignant le dernier chaînon
+de la chaîne.
+L'attribut fin contient null quand la chaîne est vide.
+Il coïncide avec debut quand la chaîne ne contient qu'un seul chaînon.
 
-
+Dans un premier temps, adaptez les méthodes addDebut et delDebut afin
+de prendre en compte ce nouvel attribut.
+Dans un second temps, rajoutez les méthodes addFin permettant respectivement d'ajouter et de supprimer
+un élément en fin de chaîne.
 **/
+
+
+// Solution
+public void addDebut(Object o) {
+  if (o!=null) {
+    this.debut = new Chainon(o, this.debut);
+    if(this.fin==null) this.fin = this.debut;
+  }
+}
+
+
+
+public Object delDebut() {
+  if(this.debut==null) return null;
+  Object res = this.debut.val;
+  this.debut = this.debut.next;
+  if(this.debut==null) this.fin=null;
+  return res;
+}
+
+
+
+public void addFin(Object o) {
+    if (o!=null) {
+        if(this.fin==null) this.fin = this.debut = new Chainon(o, null);
+        else this.fin = this.fin.next = new Chainon(o, null);
+    }    
+}
+
+
+
+public Object delFin(){
+    if(this.fin==null) return null;
+    Object res = this.fin.val;
+    if(this.fin==this.debut) this.debut = this.fin=null;
+    else{
+        Chainon avantDernier = this.debut;
+        while(avantDernier.next!=this.fin)
+            avantDernier = avantDernier.next;
+        this.fin = avantDernier;
+        this.fin.next = null;
+    }
+    return res;
+}
