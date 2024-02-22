@@ -1,5 +1,39 @@
 /*Instructions
 
+Une pile est une structure de données munie d'un point d'accès unique nommé sommet à partir 
+duquel on peut ajouter ou enlever un élément.
+L'élément récupéré correspond au dernier élément ajouté. 
+
+Le fonctionnement d'une pile est représenté par l'interface suivante :
+public interface Pile {
+  boolean isEmpty();
+  void push(Object o);
+  Object pop();
+}
+
+
+La référence fournie à push est ajoutée à la pile si elle n'est pas null.
+La référence renvoyée par pop est null si la pile est vide. Exemple d'utilisation :
+
+Pile p = 
+p.push(12); p.push(-1); p.push(18); p.push(30);  
+Object o1 = p.pop(); // o1 : 30 (dernier élément ajouté)
+Object o2 = p.pop(); // o2 : 18 (avant-dernier élément ajouté)
+
+
+Modifier la classe SimpleChainage de manière à ce qu'elle
+mette en oeuvre l'interface Pile. Choisir l'extrémité de SimpleChainage (début ou fin de chaîne)
+avec laquelle le sommet d'une pile devrait de préférence coïncider.
 **/
 
-// Solution 
+// Solution
+public class SimpleChainage implements Pile {
+    @Override
+    public boolean isEmpty() { return this.debut == null; }
+
+    @Override
+    public void push(Object o) { this.addDebut(o); }
+
+    @Override
+    public Object pop() { return this.delDebut(); }
+}
