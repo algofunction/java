@@ -1,0 +1,9 @@
+/*Instructions
+
+Une file est une structure de données munie d'un point d'accès en écriture nommé
+queue à partir duquel on peut ajouter un élément,
+et d'un point d'accès en lecture nommé tête à partir duquel on peut enlever un élément.
+**/
+
+
+// Solution
