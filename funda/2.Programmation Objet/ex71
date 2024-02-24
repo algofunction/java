@@ -7,3 +7,10 @@ et d'un point d'accès en lecture nommé tête à partir duquel on peut enlever 
 
 
 // Solution
+public class SimpleChainage implements Pile, File {
+  @Override
+  public void add(Object o) { this.addFin(o); }
+
+  @Override
+  public Object remove() { return.this.delDebut(); }
+}
