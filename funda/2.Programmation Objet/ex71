@@ -3,6 +3,32 @@
 Une file est une structure de données munie d'un point d'accès en écriture nommé
 queue à partir duquel on peut ajouter un élément,
 et d'un point d'accès en lecture nommé tête à partir duquel on peut enlever un élément.
+
+L'élément récupéré correspond à l'élément le plus ancien de la file. Le fonctionnement
+d'une file est représenté par l'interface suivante :
+
+public interface file{
+  boolean isEmpty();
+  void add(Object o);
+  Object remove();
+}
+
+La référence fournie à add est ajoutée à la file seulement si elle n'est pas null.
+La référence renvoyée par remove est null si la file est vide. Exemple d'utilisation :
+
+File f = ;
+f.add(12); f.add(-1); f.add(18); f.add(30);
+Object o1 = f.remove();
+Object o2 = f.remove();
+
+
+Modifier la classe SimpleChainage de manière à ce qu'elle mette en oeuvre l'interface
+File(en plus de Pile). Comme pour Pile, choisir les extrémités de
+SimpleChainage avec lesquelles ma tête et la queue d'une file devraient
+de préférence coïncider.
+
+La méthode isEmpty n'est pas à définir car elle coïncide avec la méthode
+isEmpty de l'interface Pile, déjà présente dans SimpleChainage.
 **/
 
 
