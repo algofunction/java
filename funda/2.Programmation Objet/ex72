@@ -1,7 +1,33 @@
 /*Instruction 
 
-
-
+Définir la classe TabEnsemble qui met en oeuvre l'interface Ensemble
+selon le principe énoncé.
 **/
 
 //Solution 
+public class TabEnsemble implements Ensemble {
+  private static final int TAILLEBLOC = 5;
+  private Object[] tab;
+  private int prochainIndice;
+
+  public TabEnsemble() {
+    this.tab = new Object[TAILLEBLOC];
+    this.prochainIndice = 0;
+  }
+
+  public String toString() {
+    String res = "[_";
+    for (int i = 0; i < this.prochainIndice ; i++)
+      res += (this.tab[i]+"_");
+    return res + "]";
+  }
+
+  public void add (Object o) {}
+  public void remove (Object o) {}
+  public boolean contains (Object o) {}
+
+  public int size () {
+    return this.prochainIndice;
+  }
+}
+
