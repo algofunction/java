@@ -2,6 +2,15 @@
 
 Définir la classe TabEnsemble qui met en oeuvre l'interface Ensemble
 selon le principe énoncé.
+Dans cette classe, définir :
+- un attribut TAILLEBLOC statique, privé ou constant, réprésentant t, i.e la taille
+d'un bloc
+- un attribut tab privé représentant le tableau des éléments de l'ensemble
+- un attribut prochainIndice privé représentant pi, i.e. l'indice de la 1ère case libre de tab 
+- un constructeur permetant de créer tab avec initialement TAILLEBLOC cases
+- la méthode toString représentant les éléments de l'ensemble par une chaîne de caractères de la forme :
+[élement0 élement1 ... élement(pi-1) ]
+
 **/
 
 //Solution 
