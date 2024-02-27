@@ -1,5 +1,13 @@
 /*Instructions
 
+Définir la méthode contains indiquant si un objet fourni en paramètre 
+est présent (selon equals) dans l'ensemble.
 **/
 
 // Solution
+public boolean contains(Object o) {
+  for(int i = 0; i < this.prochainIndice; i++) // recherche
+    if (this.tab[i].equals(0))
+      return true; // on a trouvé
+  return false; // on n'a pas trouvé
+}
