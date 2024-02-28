@@ -1,0 +1,21 @@
+/*
+Instructions
+
+Définir la méthode add ajoutant un objet à l'ensemble si :
+-la référence fournie n'est pas null
+-et l'objet référencé n'est pas déjà présent (selon equals).
+
+Ne pas oublier de réallouer le tableau lorsqu'il est plein.
+**/
+
+// Solution
+public void add(Object o) {
+  if (o == null)
+    return;
+  if (this.contains(o))
+    return;
+
+  this.tab[this.prochainIndice++] = o;
+  if (this.prochainIndice == this.tab.length)
+    this.tab = Arrays.copyOf(this.tab, this.tab.length+TAILLEBLOC);  
+}
