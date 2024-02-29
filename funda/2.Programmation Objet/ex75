@@ -6,8 +6,13 @@ Ne pas oublier de :
 **/
 
 // Solution 
-public void remove(Object o){
-for(int i = 0; i < this.prochainIndice; i++)// recherche
-if(this.tab[i].equals(o)) {
-this.tab[i] = this.tab[this.prochainIndice]
+public void remove(Object o) {
+  for(int i = 0; i < this.prochainIndice; i++) // recherche
+    if(this.tab[i].equals(o)) {
+      this.tab[i] = this.tab[this.prochainIndice - 1];
+      this.prochainIndice--;
+      if (this.prochainIndice + TAILLEBLOC < this.tab.length)
+        this.tab =
+          Arrays.copyOf(this.tab, this.tab.length-TAILLEBLOC);
+    }
 }
