@@ -1,0 +1,8 @@
+/*Instructions
+Définir la méthode remove retirant un objet de l'ensemble seulement si la référence fournie désigne un objet présent (selon equals).
+Ne pas oublier de :
+-maintenir les éléments stockés au début du tableau,
+-le réallouer lorsqu'il comporte trop de cases libres.
+**/
+
+// Solution 
