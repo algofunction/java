@@ -1,0 +1,41 @@
+/*Instructions
+
+On souhaite étendre l'interface Ensemble avec des fonctions
+liées à une relation d'ordre.
+Par exemple, on souhaite pouvoir déterminer le plus petit élément
+d'un ensemble non vide.
+
+Déterminer cet élément n'a de sens que si tous les éléments de l'ensemble sont
+comparables entre eux. Dans ce but, on commence par introduire la notion
+de comparateur.
+
+Un comparateur correspond à une fonction s'appliquant à deux objets comparables
+et renvoyant une valeur négative, nulle et positive, selon que le premier 
+paramètre est inférieur, égal ou supérieur au deuxième.
+Si les objets ne sont pas comparables entre eux, le résultat est null.
+Cet usage du comparateur est défini par l'interface suivante :
+
+
+public interface Comparateur {
+  /** renvoie null si o1 et o2 ne sont pas comparables, ou x sinon
+    avec : x<0 si o1<o2 ; x=0 si o1=o2 ; x>0 si o1>o2 */
+  Integer compare(Object o1, Object o2);
+}
+
+Par exemple, la classe ComparateurInteger suivante met en oeuvre l'interface Comparateur
+en définissant une méthode compare s'appliquant à des entiers de type Integer et représentant
+l'ordre naturel des entiers :
+
+class ComparateurInteger implements Comparateur {
+  public Integer compare(Object o1, Object o2) {
+    if (!(o1 instanceof Integer
+  }
+
+} 
+
+
+
+**/
+
+
+// Solution
