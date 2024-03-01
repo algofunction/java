@@ -1,5 +1,98 @@
 /*Instructions
+L'interface Ensemble ne propose pas de moyen de parcourir les éléments de l'ensemble.
+Afin de combler cette lacune, on introduit la notion d'itérateur.
 
+Un itérateur est une sorte de curseur qui se déplace en séquence sur un
+ensemble de données permettant de parcourir les éléments de l'ensemble.
+A chaque déplacement, l'itérateur renvoie la valeur d'un élément (élément lu).
+
+L'ordre de parcours n'est pas significatif.
+
+On doit pouvoir savoir si l'itérateur peut encore être déplacé (i.e. s'il reste
+encore au moins un élément à lire).
+Quand c'est encore possible, on doit pouvoir déplacer l'itérateur et ainsi
+récupérer un élément lu.
+
+Cet usage de l'itérateur est définit par l'interface suivante :
+
+public interface Iterateur {
+  /** indique si l'itérateur peut progresser dans son parcours
+  des éléments de l'ensemble. */
+  boolean hasNext();
+
+  /**Si possible, renvoie le prochain élément à lire  dans l'ordre 
+  de parcours et déplace l'itérateur. Renvoie null sinon.*/
+  Object next();
+}
+
+On souhaite mettre en oeuvre cette interface pour parcourir spécifiquement
+les ensembles de type TabEnsemble en utilisant :
+- l'objet e de type TabEnsemble que l'itérateur doit parcourir
+- l'indice n du prochain élément à lire dans le tableau de e
+
+Initialement, la première case à lire désignée par n est la case d'indice 0.
+A chaque lecture, n est incrémenté. L'itérateur a terminé son parcours quand n 
+coïncide avec l'indice pi de e (représenté par son attribut prochainIndice).
+
+Définir une classe TabEnsembleIterateur interne à la classe TabEnsemble., privée,
+et qui met en oeuvre l'interface Iterateur selon le principe énoncé.
+Dans cette classe, définir :
+- un attribut next privé représentant n (l'indice de la prochaine case à lire de e)
+- un constructeur permettant d'initialiser next à 0
+- les méthodes hasNext et next de l'interface Iterateur.
+
+
+Notez qu'il n'est pas nécessaire de disposer d'un attribut représentant l'objet e
+que l'objet doit parcourir.
+En effet, TabEnsembleIterateur est une classe interne, donc chacune de ses instances 
+est par construction associéé à une instance de la classe englobante désignée par 
+TabEnsemble.this. C'est cette instance qui doit être parcourue et qui joue donc le 
+rôle de e.
+
+Ajouter à l'interface Ensemble la méthode getIterateur suivante renvoyant en résultat
+un nouvel itérateur associé à l'ensemble :
+
+public interface Ensemble {
+  /* méthodes précédentes de l'interface Ensemble ... */
+  /* nouvelle méthode : renvoie un nouvel itérateur sur this. */
+  Iterateur getIterateur();
+}
+
+
+Exemple d'utilisation de cette nouvelle méthode :
+
+Ensemble e = new TabEnsemble();
+for (int i=0; i<5; i++) e.add(i);
+for (Iterateur it = e.getIterateur(); it.hasNext(); )
+  System.out.print(it.next() + "_");
+
+Adaptez en conséquence la classe TabEnsemble. La méthode
+getIterateur de la classe TabEnsemble doit renvoyer
+une nouvelle instance de TabEnsembleIterateur.
 **/
 
+
 // Solution 
+public class TabEnsemble implements Ensemble {
+
+  private class TabEnsembleIterateur implements Iterateur {
+    private int next;
+    public TabEnsembleIterateur() { this.next = 0; }
+
+    public boolean hasNext() {
+      return this.next != TabEnsemble.this.prochainIndice;
+    }
+
+    public Object next() {
+      if(!this.hasNext()) return null;
+      Object res = TabEnsemble.this.tab[this.next];
+      this.next++;
+      return res;
+    }
+}
+
+
+  public Iterateur getIterateur() {
+    return new TabEnsembleIterateur();
+  }
+}
