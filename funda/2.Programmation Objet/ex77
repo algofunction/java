@@ -28,14 +28,74 @@ l'ordre naturel des entiers :
 
 class ComparateurInteger implements Comparateur {
   public Integer compare(Object o1, Object o2) {
-    if (!(o1 instanceof Integer
+    if (!(o1 instanceof Integer)) return null;
+    if (!(o2 instanceof Integer)) return null;
+    return (Integer)o1-(Integer)o2;
   }
-
 } 
 
+Pour s'en convaincre, il faut considérer deux instances o1 et o2 de type
+Integer et une instance c de type ComparateurInteger.
+On a alors les équivalences suivantes : c.compare(o1,o2) <= 0 <-> o1-o2<= 0 <-> o1<=o2
 
+Ajoutez à l'interface Ensemble les méthodes min et max suivantes s'appliquant à un comparateur
+et renvoyant en résultat respectivement la plus petite et la plus grande valeur de l'ensemble
+selon le comparateur fourni :
 
+public interface Ensemble {
+  /** renvoie la plus petite valeur selon c ou null si
+      au moins un élément n'est pas comparable aux autres. */
+  Object min(Comparateur c);
+
+  /** renvoie la plus grande valeur selon c ou null si
+      au moins un élément n'est pas comparable aux autres. */
+  Object max(Comparateur c);
+}
+Adaptez en conséquence la classe TabEnsemble.
 **/
 
+// Solution = 2 versions. La version suivante créant deux méthodes au code symétrique :
+public class TabEnsemble implements Ensemble {
 
-// Solution
+  /* méthodes précédentes de la classe TabEnsemble */
+
+  public Object min(Comparateur c){
+    if (this.prochainIndice == 0) return null;
+    Object min = this.tab[0];
+    for (int i = 1; i < this.prochainIndice; i++) {
+      Integer comparaison = c.compare(min, this.tab[i]);
+      if (comparaison == null) return null;
+      if (comparaison > 0) min = this.tab[i];
+    } 
+  return min;
+  }
+
+  public Object max(Comparateur c) {
+    if (this.prochainIndice == 0) return null;
+    Object max = this.tab[0]; // premier element
+    for (int i = 1; i < this.prochainIndice; i++) {
+      Integer comparaison = c.compare (max, this.tab[i]);
+      if (comparaison == null) return null;
+      if (comparaison < 0) max = this.tab[i];
+    }
+    return max;
+  }
+}
+
+// version suivante : on considère max comme la méthode min appliqué au comparateur inverse.
+// Le comparateur inverse est créé ici par une instance de classe anonyme implémentant Comparateur :
+
+public class TabEnsemble implements Ensemble {
+
+  /* méthodes précédentes de la classe TabEnsemble */
+
+  public Object min(Comparateur c){
+
+  public Object max(Comparateur c){
+    return this.min(new Comparateur() {
+      public Integer compare(Object o1, Object o2){
+        return c.compare(o1, o2);
+      }
+    });  
+  }
+}
