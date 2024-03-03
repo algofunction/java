@@ -1,0 +1,30 @@
+/**Instructions
+
+Redéfinir dans la classe SimpleChainage la méthode equals afin de mettre
+en oeuvre les critères d'égalité suivant :
+deux chaînes d'objets sont égales si elles comportent les mêmes objets 
+dans le même ordre.
+
+Ce critère d'égalité des chaînes d'objets coïncide avec les critères d'égalités : 
+des piles et de files. 
+*/
+
+// Solution
+public boolean equals(Object o) {
+  if(o == null)
+    return false;
+  if(o == this)
+    return true;
+  if(!(o instanceof SimpleChainage))
+    return false;
+
+  SimpleChainage sc = (SimpleChainage) o;
+  Chainon scCurseur, thisCurseur;
+  for (scCurseur=sc.debut, thisCurseur=this.debut;
+        scCurseur!=null && thisCurseur!=null;
+        scCurseur=scCurseur.next, thisCurseur=thisCurseur.next) {
+      if(!scCurseur.val.equals(thisCurseur.val))
+        return false;
+  }
+  return thisCurseur == scCurseur; // les deux doivent valoir null. 
+}
