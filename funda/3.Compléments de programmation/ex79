@@ -1,0 +1,23 @@
+/**Instructions
+
+Modifier les interfaces Pile et File pour rendre possible le clonage des piles et des files.
+
+Sachant que Cloneable ne définit aucune méthode spécifique et que clone est une méthode héritée
+de la classe Object quel est :
+- l'intérêt de rajouter les clauses extends Cloneable à Pile et à File ?
+- l'intérêt de rajouter les méthodes clone dans Pile et dans File ?
+- la conséquence dans la classe SimpleChainage ?
+
+Modifier la classe SimpleChainage en conséquence. Les clones doivent être séparés des originaux.
+Un modification sur l'original ne doit pas avoir de conséquence sur le clone et réciproquement.  
+*/
+
+// Solution 
+private static class Chainon implements Cloneable {
+  public Chainon clone() {
+    try { return (Chainon) super.clone(); }
+    catch (CloneNotSupportedException e) {return null;}
+  }
+}
+
+
