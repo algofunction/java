@@ -13,11 +13,26 @@ Un modification sur l'original ne doit pas avoir de conséquence sur le clone et
 */
 
 // Solution 
-private static class Chainon implements Cloneable {
+private static class Chainon implements Cloneable { // public, pas d'exception, retour Chaînon
   public Chainon clone() {
     try { return (Chainon) super.clone(); }
+    // catch obligatoire mais inutile car this a le type Cloneable
     catch (CloneNotSupportedException e) {return null;}
   }
+
+public class SimpleChainage implements Pile, File {
+  public SimpleChainage clone() { // compatible avec Pile et File
+    SimpleChainage clone;
+    try { clone = (SimpleChainage) super.clone(); }
+    // catch obligatoire mais inutile car this a le type Cloneable
+    catch (CloneNotSupportedException e) { return null; }
+    if (this.debut==null) return clone; // cas chaîne vide
+    // ici la chaîne n'est pas vide, on peut cloner les chaînons:
+    clone.debut = this.debut.clone();
+    Chainon curs; // variable de parcours du clone
+    for (curs=clone.debut;curs.next!=null; curs=curs.next)
+      curs.next = curs.next.clone();
+    clone.fin = curs;
+    return clone;
+  }
 }
-
-
