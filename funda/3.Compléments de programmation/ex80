@@ -1,0 +1,33 @@
+/*Instructions
+
+On modifie les interfaces Pile et File afin de les rendre génériques.
+Toutes les occurrences de Object sont remplacées par le paramètre de type E
+déclaré au niveau des interfaces.
+Modifier en conséquence la classe SimpleChainage :
+
+public interface Pile<E> extends Cloneable {
+  boolean isEmpty();
+  void push(E o);
+  E pop();
+  Pile<E> clone();
+}
+
+public interface File<E> extends Cloneable {
+  boolean isEmpty();
+  void add(E o);
+  E remove();
+  File<E> clone();
+}
+**/
+
+// Solution
+public class SimpleChainage<E> implements Pile<E>, File<E> { /*....*/
+  public boolean isEmpty () }
+
+
+
+
+
+
+
+
