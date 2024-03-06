@@ -22,8 +22,11 @@ public interface File<E> extends Cloneable {
 
 // Solution
 public class SimpleChainage<E> implements Pile<E>, File<E> { /*....*/
-  public boolean isEmpty () }
-
+  public boolean isEmpty () { return this.debut == null; }
+  public void push (E o) { this.addDebut(o); }
+  public E pop() { return this.delDebut(); }
+  public void add(E o) { this.addFin(o); }
+  public E remove() { return this.delDebut(); }
 
 
 
