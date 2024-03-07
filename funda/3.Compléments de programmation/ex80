@@ -20,6 +20,10 @@ public interface File<E> extends Cloneable {
 }
 **/
 
+
+/*Il faut introduire le type générique dans l'entête de SimpleChainage
+et mettre à jour la mise en oeuvre des méthodes de Pile et File :
+**/
 // Solution
 public class SimpleChainage<E> implements Pile<E>, File<E> { /*....*/
   public boolean isEmpty () { return this.debut == null; }
@@ -28,9 +32,17 @@ public class SimpleChainage<E> implements Pile<E>, File<E> { /*....*/
   public void add(E o) { this.addFin(o); }
   public E remove() { return this.delDebut(); }
 
+/*Maintenant que la classe SimpleChainage dispose d'un type générique,
+il est naturel de l'utiliser pour typer les éléments stockés dans la chaîne
+à la place de Object.
+La classe Chainon est donc elle-même rendue générique, les attributs sont modifiés
+et toutes les méthodes sont adaptées selon les même principe (E remplace Object) :
+**/
+// Solution
+public class SimpleChainage<E> implements Pile<E>, File<E> {
+  private static class Chainon
 
-
-
+}
 
 
 
