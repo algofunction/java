@@ -40,9 +40,36 @@ et toutes les méthodes sont adaptées selon les même principe (E remplace Obje
 **/
 // Solution
 public class SimpleChainage<E> implements Pile<E>, File<E> {
-  private static class Chainon
-
+  private static class Chainon<E> implements Cloneable {
+    E val;
+    Chainon<E> next;
+    Chainon{E val, Chainon<E> next) {
+      this.val = val;
+      this.next = next;
+    }
+    /* adaptation de clone ... */
+  }
+  private Chainon<E> debut, fin;
+  public SimpleChainage(E... init) { /* constructeur */ } 
+  public void addDebut (E o) {
+    if(o != null) {
+      this.debut = new Chainon<>(o, this.debut);
+      if (this.fin == null) this.fin = this.debut; 
+    }
+  }
+  /* adaptation du reste des méthodes ... */
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
