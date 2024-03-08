@@ -1,6 +1,34 @@
 /*
+Instructions
 
+On ajoute aux interfaces Pile et File une méthode update prenant en paramètre une fonction
+et l'appliquant à tous les éléments stockés.
+Cette fonction est une lambda expression dont le type cible est l'interface Fonction :
+interface Fonction<E> { E apply (E e); }
+
+public interface Pile<E> extends Cloneable {
+  /* ... */
+  void update(Fonction<E> f); // applique f aux éléments de la pile
+} 
+
+
+public interface File<E> extends Cloneable {
+  /* ... */
+  void update(Fonction<E> f); // applique f aux éléments de la file
+} 
+
+Modifier en conséquence la classe SimpleChainage.
+Utiliser ensuite la fonction update pour incrémenter les valeurs d'une pile d'entiers, puis pour incrémenter
+les valeurs impaires d'une file d'entiers.
 **/
 
-
 // Solution
+public void update(Fonction<E> f) {
+  for (Chainon<E> ch = this.debut; ch! null; ch= ch.next)
+
+
+}
+
+
+
+
