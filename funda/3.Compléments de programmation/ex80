@@ -36,7 +36,7 @@ public class SimpleChainage<E> implements Pile<E>, File<E> { /*....*/
 il est naturel de l'utiliser pour typer les éléments stockés dans la chaîne
 à la place de Object.
 La classe Chainon est donc elle-même rendue générique, les attributs sont modifiés
-et toutes les méthodes sont adaptées selon les même principe (E remplace Object) :
+et toutes les méthodes sont adaptées selon les mêmes principes (E remplace Object) :
 **/
 // Solution
 public class SimpleChainage<E> implements Pile<E>, File<E> {
