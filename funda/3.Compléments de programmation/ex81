@@ -24,11 +24,15 @@ les valeurs impaires d'une file d'entiers.
 
 // Solution
 public void update(Fonction<E> f) {
-  for (Chainon<E> ch = this.debut; ch! null; ch= ch.next)
-
-
+  for (Chainon<E> ch = this.debut; ch!=null; ch= ch.next)
+    ch.val = f.apply(ch.val);
 }
 
+// Application sur une pile et sur un file :
+Pile<Integer> p = new SimpleChainage<>();
+p.push(8); p.push(-2); p.push(3); // p : [8 [-2 [3
+p.update(i -> i+1); // incrementation : [9 [-1 [4
 
-
-
+File<Integer> f = new SimpleChainage<>();
+f.add(8); f.add(-2); f.add(3); // f : 8 < -2 < 3 implémentation sélective 
+f.update(i -> (i%2!=0 ? i+1 : i)); // f : 8 < -2 < 4
