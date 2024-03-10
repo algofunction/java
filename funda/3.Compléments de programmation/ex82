@@ -1,0 +1,15 @@
+/**
+Instructions 
+
+Définir la fonction multiPop s'appliquant à une série de piles de valeurs quelconques,
+qui dépile tous leurs sommets, et qui les renvoie en résultat sous forme de tableau.
+Pour cette première version de multiPop, on fait l'hypothèse qu'aucune des piles fournies n'est vide. 
+*/
+
+// Solution
+static Object[] multiPop(Pile<?>... piles) {
+  Object[] res = new Object[piles.length];
+  for (int i = 0; i < piles.length; i++)
+    res[i] = piles[i].pop();
+  return res;
+}
