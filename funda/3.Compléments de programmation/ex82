@@ -3,7 +3,14 @@ Instructions
 
 Définir la fonction multiPop s'appliquant à une série de piles de valeurs quelconques,
 qui dépile tous leurs sommets, et qui les renvoie en résultat sous forme de tableau.
-Pour cette première version de multiPop, on fait l'hypothèse qu'aucune des piles fournies n'est vide. 
+Pour cette première version de multiPop, on fait l'hypothèse qu'aucune des piles fournies n'est vide.
+
+La fonction multiPop peut être définie entièrement sans aucune indication sur la façon dont les piles fournies sont mises en oeuvre.
+L'interface Pile est suffisante pour typer les paramètres.
+
+Tout l'intérêt des interfaces réside dans cette possibilité de faire des programmes
+indépendants de la façon dont les données qu'ils manipulent sont stockées, agrégées
+et rendues accessibles.
 */
 
 // Solution
