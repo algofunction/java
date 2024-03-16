@@ -1,0 +1,44 @@
+/*Instructions
+
+Vérifier que les piles fournies par mutiPop ne sont pas vides.
+
+Dans ce but, définir une classe MutiPopException, qui dérive de Exception
+disposant d'un unique constructeur paramétré par un entier i, et dont l'explication
+est "Paramètre d'indice i : pile vide".
+
+Modifier ensuite mutiPop de manière à ce que la présence d'une pile vide parmi ses
+paramètres à l'indice i provoque une exception de type MutiPopException.
+
+Attention : les piles ne doivent être dépilées que si toutes les piles peuvent l'être.
+**/
+
+
+// Solution
+/*le constructeur de MutiPopException doit s'appuyer sur le constructeur hérité de Exception
+prenant en paramètre l'explication (type String).
+L'indice de la pile erronée est fourni en paramètre et utilisé pour construire l'explication.
+**/
+
+class MutiPopException extends Exception {
+  public MutiPopException(int i) {
+    super("Paramètre_d'indice_" + i + "_de_mutiPop_:_pile_vide");
+  }
+} 
+
+/*
+L'exception MutiPopException est vérifiée puisqu'elle hérite directement de Exception.
+La clause throws MutiPopException en entête de mutiPop est donc obligatoire.
+**/
+
+static Object[] mutiPop(Pile<?>... piles) throws MutiPopException {
+  for(int i = 0; i < piles.length; i++) {
+    if(piles[i].isEmpty())
+      throw new MutiPopException(i);
+  }
+  Object[] res = new Object[piles.length];
+  for (int i = 0; i < piles.length; i++)
+    res[i] = piles[i].pop();
+  return res;
+}
+
+
