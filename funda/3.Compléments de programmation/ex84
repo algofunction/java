@@ -2,10 +2,25 @@
 
 On considère maintenant que l'obligation de ne fournir à multiPop que des piles non
 vides est contractuelle.
+Cette obligation peut être satisfaite sans difficulté grâce à la méthode isEmpty.
 
-
-
+Par conséquent, invoquer multiPop avec une pile vide en paramètre est une erreur (un bug).
+Modifier la déclaration de MultiPopException afin de prendre en compte cette obligation
+contractuelle.
+Modifier en conséquence le code de multiPop.
 **/
 
 
 // Solution
+/*L'exception MultiPopException représente désormais une erreur de programmation que l'on doit
+par définition éviter.
+La seule réaction pertinente quand elle survient est la propagation.
+Elle doit donc de préférence dériver de RuntimeException :
+**/
+public class MultiPopException extends RuntimeException {/* ... */}
+
+/*
+L'exception n'est plus vérifiée. Il n'est donc plus nécessaire de l'indiquer
+dans la clause throws de multiPop : 
+**/
+static Object[] multiPop(Pile<?>... piles) { /* ... */ }
