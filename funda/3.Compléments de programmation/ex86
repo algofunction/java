@@ -1,0 +1,14 @@
+/*Instructions
+
+Dans la méthode saisieIntervalle, lorsque la chaine saisie ne peut pas
+être convertie en entier,
+le résultat est un code d'erreur correspondant à borneInf-1.
+Dans quel cas ce code ne pourra-t-il pas être distingué d'un
+résultat valide ?
+
+Quand l'intervalle rassemble toutes les valeurs possibles de int,
+borneInf-1 correspond à une valeur possible qu'il n'est pas possible de distinguer du code d'erreur :
+**/
+
+// Solution
+int i = saisieIntervalle(Integer.MINVALUE, Integer.MAXVALUE);
