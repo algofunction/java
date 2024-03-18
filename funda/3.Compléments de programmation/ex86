@@ -12,3 +12,7 @@ borneInf-1 correspond à une valeur possible qu'il n'est pas possible de disting
 
 // Solution
 int i = saisieIntervalle(Integer.MINVALUE, Integer.MAXVALUE);
+// saisie : "231"
+// résultat : 231 (Integer.MAXVALUE)  
+// saisie : "xyx"
+// résultat : xyx (Integer.MINVALUE -1)
