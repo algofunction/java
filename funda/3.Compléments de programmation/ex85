@@ -1,0 +1,12 @@
+/*Instructions
+
+Quel est l'intérêt dans la méthode saisieIntervalle de rattraper l'exception
+IOException pour en soulever une autre de type IOError ?
+**/
+
+/*Solution
+L'exception IOException dérive de Exception alors que IOError dérive de Error.
+L'exception IOException est donc vérifiée contrairement à IOError.
+Par conséquent, remplacer une IOException par une IOError permet d'éviter de mentionner
+systématiquement la clause throws en entête.
+**/
