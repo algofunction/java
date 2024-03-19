@@ -1,7 +1,32 @@
 /*Instructions
 
+Dans la méthode saisieIntervalle, utiliser des exceptions à la
+place des codes d'erreur.
+Modifier le code afin que les exceptions suivantes soient soulevées :
+- IOException : quand la valeur saisie n'est pas un entier valide
+- NumberFormatException : quand la valeur saisie n'est pas un entier valide
+- HorsIntervalleException : quand la valeur saisie est un entier valide 
+non compris dans l'intervalle.
 
+La classe HorsIntervalleException est à définir. Choisir la classe d'exception
+dont elle doit dériver.
 **/
 
+// La classe HorsIntervalleException doit hériter de Exception (exception vérifiée) :
+// Solution
+public class HorsIntervalleException extends Exception {
 
-// Solution 
+  /* constructeur éventuels... */
+}
+
+// On obtient le code suivant :
+
+public static int saisieIntervalle(int borneInf, int borneSup)
+    throws IoException, HorsIntervalleException {
+  String ligneLue = new BufferedReader(/* ... */).readLine();
+  int valeurLue = Integer.valueOf(ligneLue);
+  if (valeurLue < borneInf || valeurLue > borneSup) {
+    throw new HorsIntervalleException();
+  }
+  return valeurLue;
+}
