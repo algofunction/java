@@ -6,6 +6,6 @@ public static void affiche(ArrayList<Integer> l) {
   for (int i=0; i<l.size(); i++)
    System.out.println(l.get(i));
 }
-/*Modifier
 
+/*Modifier la fonction afin qu'elle puisse s'appliquer à n'importe quelle collection d'éléments quelconques.
 */
