@@ -9,3 +9,5 @@ public static void affiche(ArrayList<Integer> l) {
 
 /*Modifier la fonction afin qu'elle puisse s'appliquer à n'importe quelle collection d'éléments quelconques.
 */
+
+Collection<String> c1 = Arrays.asList("")
